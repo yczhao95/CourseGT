@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+    
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to GT-course</h1>
+            <p>View all the cs courses</p>
+            <p>    
+                <a class="btn btn-primary btn-large" href="/courses/new">Add new course</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class="col">
+        <% courses.forEach(function(course){ %>
+            <div class="row-md-3 row-sm-6">
+                <a href="/courses/<%= course._id %>"><%= course.name%> </a>
+                    <%= course.professor%>
+                <span class="pull-right">GPA: <%= course.gpa%></span>
+                <hr>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<%include ../partials/footer %>

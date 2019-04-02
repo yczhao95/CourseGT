@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">GTCourse</p>
+            <div class="list-group">
+                <li class="list-group-item">info 1</li>
+                <li class="list-group-item">info 2</li>
+                <li class="list-group-item">info 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <div class="caption-full">
+                    <h4 class="pull-right"> MWF 9:30</h4>
+                    <h4><a><%=course.name%></a></h4>
+                    <p>Professor: <%=course.professor%></p>
+                    <p>Average GPA: <%=course.gpa%></p>
+                    <p>blah blah blah</p>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/courses/<%= course._id%>/comments/new">Add New Comment</a>
+                </div>    
+                <hr>    
+                <% course.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%=comment.author%></strong>
+                            <span class="pull-right">5 days ago</span>
+                            <p>
+                                <%= comment.text%>
+                            </p>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
