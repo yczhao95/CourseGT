@@ -10,8 +10,8 @@ var express     = require("express"),
     User        = require("./models/user")
     
 var commentRoutes   = require("./routes/comments"),
-    courseRoutes    = require("./routes/courses"),
-    indexRoutes     = require("./routes/index")
+    courseRoutes    = require("./routes/courses"),//this is for adding, showing, all the courses
+    indexRoutes     = require("./routes/index") // this is for showing all the user login page(login, register and logout)
 
 mongoose.connect("mongodb://localhost:27017/gt_course", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));

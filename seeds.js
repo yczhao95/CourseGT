@@ -23,7 +23,7 @@ var data = [
     }
     
 ]
- 
+ //need to explain more in this part
 function seedDB(){
    //Remove all campgrounds
    Course.remove({}, function(err){
