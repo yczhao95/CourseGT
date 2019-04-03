@@ -22,10 +22,11 @@ router.get("/courses", function(req,res) {
 router.post("/courses", function(req, res){
     //res.send("you send the post route");
    //get data from form and add to course array
+   var courseid = req.body.courseid;
    var name = req.body.name;
    var professor = req.body.professor;
    var gpa = req.body.gpa;
-   var newCourse = {name: name, professor:professor, gpa: gpa};
+   var newCourse = {id: courseid, name: name, professor:professor, gpa: gpa};
    //create a new course and save to database
    Course.create(newCourse, function(err, newlyCreated) {
         if(err){

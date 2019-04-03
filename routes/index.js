@@ -6,7 +6,9 @@ var passport    = require("passport");
 router.get("/", function(req, res) {
     //res.send("this will be the navigation page");
     res.render("landing");
+    console.log("this is the first page");
 });
+
 
 
 //===========
@@ -32,6 +34,8 @@ router.post("/register", function(req, res) {
 
 //show login form
 router.get("/login", function(req,res){
+    console.log("this is login");
+
     res.render("login");
 })
 
