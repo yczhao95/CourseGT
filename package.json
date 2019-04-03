@@ -1,21 +1,32 @@
 {
-  "name": "gtcoursev1",
+  "name": "v1",
   "version": "1.0.0",
-  "description": "gt-course v1",
+  "description": "YelpCamp v1",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "bryan zhao",
+  "author": "Colt Steele",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "mongoose": "^5.4.20",
-    "passport": "^0.4.0",
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.12",
+    "passport": "^0.3.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.1"
-  }
+    "passport-local-mongoose": "^3.1.0",
+    "request": "^2.65.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yczhao95/CourseGT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yczhao95/CourseGT/issues"
+  },
+  "homepage": "https://github.com/yczhao95/CourseGT#readme"
 }
