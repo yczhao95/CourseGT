@@ -18,6 +18,7 @@ router.get("/courses/:id/comments/new", isLoggedIn, function(req, res) {
 
 router.post("/courses/:id/comments", isLoggedIn, function(req, res){
     //look up course using id
+    // then push the comments in the courses
     Course.findById(req.params.id, function(err, course){
         if(err){
             console.log("course not found"+err);

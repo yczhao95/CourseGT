@@ -1,10 +1,12 @@
 var express = require("express");
 var router  = express.Router();
-var Course  = require("../models/course");
-var Comment = require("../models/comment");
+var Course  = require("../models/course");// this is for courses database setup
+var Comment = require("../models/comment");// this is for comments database setup
 //==========
 //INDEX ROUTE
 //==========
+// courses ---> main page: index
+// courses ---> add course info : post in courses
 router.get("/courses", function(req,res) {
         //res.render("courses", {courses:courses})
     //get all courses from DB
