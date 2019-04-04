@@ -7,6 +7,11 @@ var Course  = require("../models/course");// this is for courses database setup
 
 
 // search the courses in the front pages
+ //create a new course and save to database
+//if the search course exists
+//redirect to the target course page  
+//else
+//give the course didn't exist error page
 router.post("/", function(req, res){
     //res.send("you send the post route");
    //get data from form and add to course array
@@ -41,11 +46,7 @@ router.post("/", function(req, res){
        
    }
    
-   //create a new course and save to database
-            //if the search course exists
-            //redirect to the target course page  
-            //else
-            //give the course didn't exist error page
+  
 
 });
 
