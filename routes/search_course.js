@@ -25,9 +25,15 @@ router.post("/", function(req, res){
                 console.log("course not find");
                 res.redirect("/")
             } else {
-                var course_hashcode = allCourses[0]._id;
-                res.redirect("/courses/" + course_hashcode);
-               
+                console.log(allCourses.length);
+                //if the number of results is only one, we directly go to that page
+                // else we show all match pages
+                if(allCourses.length == 1) {
+                    var course_hashcode = allCourses[0]._id;
+                    res.redirect("/courses/" + course_hashcode);
+                } else {
+                    res.render("courses/index", {courses: allCourses});
+                }
             }
            
         }

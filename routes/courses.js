@@ -51,6 +51,7 @@ router.get("/courses/:id", function(req, res){
              console.log(err);
          } else {
              //render the show template with that course
+             console.log("find courses:");
              console.log(foundCourse);
              res.render("courses/show", {course: foundCourse});
          }
