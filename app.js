@@ -11,7 +11,8 @@ var express     = require("express"),
     
 var commentRoutes   = require("./routes/comments"),
     courseRoutes    = require("./routes/courses"),//this is for adding, showing, all the courses
-    indexRoutes     = require("./routes/index") // this is for showing all the user login page(login, register and logout)
+    indexRoutes     = require("./routes/index"), // this is for showing all the user login page(login, register and logout)
+    searchRoutes     = require("./routes/search_course")// this is for search course routing in front page
 
 mongoose.connect("mongodb://localhost:27017/gt_course", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
@@ -35,6 +36,7 @@ app.use(function(req, res, next){
     next();
 });
 app.use(indexRoutes);
+app.use(searchRoutes);
 app.use(commentRoutes);
 app.use(courseRoutes);
 

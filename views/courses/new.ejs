@@ -3,9 +3,13 @@
     <div class="row">
         <h1 style="text-align: center;"> Create a new course</h1>
         <div style="width: 30%; margin: 30px auto">
+            <!--action is where to send the form of data when POST -->
             <form action="/courses" method = "POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" placeholder="name">
+                    <input class="form-control" type="text" name="courseid" placeholder="course id">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="course name">
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="text" name="professor" placeholder="prof name">

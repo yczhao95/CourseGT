@@ -15,7 +15,8 @@
     <div class="col">
         <% courses.forEach(function(course){ %>
             <div class="row-md-3 row-sm-6">
-                <a href="/courses/<%= course._id %>"><%= course.name%> </a>
+                
+                <a href="/courses/<%= course._id %>"><%= course.id%> <%= course.name%> </a>
                     <%= course.professor%>
                 <span class="pull-right">GPA: <%= course.gpa%></span>
                 <hr>

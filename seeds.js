@@ -4,18 +4,21 @@ var Comment   = require("./models/comment");
  
 var data = [
     {
+        id: "CS4365/CS6365",
         name: "Enterprise Computing", 
         professor: "Calton Pu",
         gpa: "3.88"
        
     },
     {
+        id: "CSE4262/CSE6242",
         name: "Data and Visual Analytics", 
         professor: "Polo Chao",
         gpa: "3.76"
        
     }, 
     {
+        id: "CS4641/CS7641",
         name: "Machine Learning", 
         professor: "Tuo Zhao",
         gpa: "3.56"

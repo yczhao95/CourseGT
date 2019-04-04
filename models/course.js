@@ -2,6 +2,7 @@
 var mongoose    = require("mongoose");
 //SCHEMA SETUP
 var courseSchema = new mongoose.Schema({
+    id: String,
     name: String,
     professor: String,
     gpa: Number,
