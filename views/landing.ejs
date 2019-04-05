@@ -37,17 +37,18 @@
                                 <li><a href="/login">Log in</a></li>
                                 <li><a href="/register">Sign up</a></li>
                             <% } else {%>
+                                    <li><a href="/myprofile">My Profile</a></li>
                                     <li><a href="/degreetrack">Degree Track</a></li>
-                                    <li><a href="/myprofile">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
                                     <li><a href="/logout">Log out</a></li>
                             <% } %>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <div class="box">
-               <div class="col-lg-4">
-                    <h2>CourseGT</h2>
+            <div class="container">
+               <div style="width:30%; margin: 300px auto;">
+                    <h2 style="text-align:center">CourseGT</h2>
                     <form action="/" method="POST">
                        <div class="input-group">
                             <input type="text" name="inputcourse" class="form-control" placeholder="Search for Courses">
