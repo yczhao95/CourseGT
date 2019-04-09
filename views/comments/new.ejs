@@ -1,19 +1,50 @@
 <% include ../partials/header %>
-<h1>NEW comment form!</h1>
 <div class="container">
     <div class="row">
         <h1 style="text-align: center;"> Add new Comment to <%= course.name %></h1>
         <div style="width: 30%; margin: 30px auto">
             <form action="/courses/<%= course._id %>/comments" method = "POST">
                 <div class="form-group">
+                    <p>Comment</p>
                     <input class="form-control" type="text" name="comment[text]" placeholder="text">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="comment[author]" placeholder="author">
+                    <p>How many hours do you spend every week?</p>
+                    <input class="form-control" type="text" name="comment[workload]" placeholder="hrs/week">
+                </div>
+                <div class="form-group">
+                    <p>How would you rate the difficulty?</p>
+                    <select name="comment[difficulty]">
+                        <option value=1>WATER</option>
+                        <option value=2>Easy</option>
+                        <option value=3>Medium</option>
+                        <option value=4>Hard</option>
+                        <option value=5>INSANE!</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How would you rate this class overall?</p>
+                    <select name="comment[rating]">
+                        <option value=1>BAD</option>
+                        <option value=2>So-So</option>
+                        <option value=3>Good</option>
+                        <option value=4>Great</option>
+                        <option value=5>AWESOME!</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>Who is your professor for this class?</p>
+                    <select name="comment[professor]">
+                        <%course.histories.forEach(function(history) {%>
+                            <option value=<%=history.prof_name%>><%=history.prof_name%></option>
+                        <%})%>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                 </div>
+                
+
             </form>
             <a href="/courses">Go back</a>
         </div>
