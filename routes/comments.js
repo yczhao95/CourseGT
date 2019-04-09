@@ -42,7 +42,17 @@ router.post("/", isLoggedIn, function(req, res){
                     course.rating = (course.rating * (len - 1) +  comment.rating) / len;
                     course.difficulty = (course.difficulty * (len - 1) +  comment.difficulty) / len;
                     course.workload = (course.workload * (len - 1) +  comment.workload) / len;
+                    var i;
+                    for (i = 0; i < course.histories.length; i++) { 
+                        if(course.histories[i].prof_name === comment.professor) {
+                            course.histories[i].num_comment++;
+                            course.histories[i].workload = (course.histories[i].workload * (course.histories[i].num_comment-1) + comment.workload) / course.histories[i].num_comment; 
+                            course.histories[i].difficulty = (course.histories[i].difficulty * (course.histories[i].num_comment-1) + comment.difficulty) / course.histories[i].num_comment;
+                            course.histories[i].rating = (course.histories[i].rating * (course.histories[i].num_comment-1) + comment.rating) / course.histories[i].num_comment;
+                        }
+                    }
                     course.save();
+                    
                     res.redirect("/courses/" + course._id);
                 }
             });

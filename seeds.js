@@ -6,7 +6,6 @@ var data = [
     {
         id: "CS4365/CS6365",
         name: "Enterprise Computing", 
-        professor: "Calton Pu",
         gpa: "3.88",
         workload:   "0",
         difficulty: "0",
@@ -21,6 +20,10 @@ var data = [
                 prof_d:15,
                 prof_f:6,
                 prof_w:4,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
             {     
                 prof_name:"ironman",
@@ -31,38 +34,20 @@ var data = [
                 prof_d:15,
                 prof_f:3,
                 prof_w:7,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
         ]
     },
     {
         id: "CSE4262/CSE6242",
         name: "Data and Visual Analytics", 
-        professor: "Polo Chao",
         workload:   "0",
         difficulty: "0",
         rating:     "0",
-        gpa: "3.76",histories:[
-            {   
-                prof_name:"hulk",
-                prof_gpa:3.01,
-                prof_a:40,
-                prof_b:20,
-                prof_c:15,
-                prof_d:15,
-                prof_f:6,
-                prof_w:4,
-            },
-            {     
-                prof_name:"ironman",
-                prof_gpa:3.05,
-                prof_a:60,
-                prof_b:0,
-                prof_c:15,
-                prof_d:15,
-                prof_f:3,
-                prof_w:7,
-            },
-        ],
+        gpa: "3.76",
         histories:[
             {   
                 prof_name:"hulk",
@@ -73,6 +58,10 @@ var data = [
                 prof_d:15,
                 prof_f:6,
                 prof_w:4,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
             {     
                 prof_name:"ironman",
@@ -83,6 +72,10 @@ var data = [
                 prof_d:15,
                 prof_f:3,
                 prof_w:7,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
         ],
        
@@ -97,9 +90,9 @@ var data = [
         d:15,
         f:6.5,
         w:4.5,
-        workload:   "0",
-        difficulty: "0",
-        rating:     "0",
+        workload:0,
+        difficulty:0,
+        rating:0,
         histories:[
             {   
                 prof_name:"hulk",
@@ -110,6 +103,10 @@ var data = [
                 prof_d:15,
                 prof_f:6,
                 prof_w:4,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
             {     
                 prof_name:"ironman",
@@ -120,6 +117,10 @@ var data = [
                 prof_d:15,
                 prof_f:3,
                 prof_w:7,
+                workload:0,
+                difficulty:0,
+                rating:0,
+                num_comment: 0
             },
         ],
         num_review:0

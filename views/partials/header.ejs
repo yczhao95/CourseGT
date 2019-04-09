@@ -22,7 +22,7 @@
                                 <li><a href="/register">Sign up</a></li>
                             <% } else {%>
                                     <li><a href="/degreetrack" style="color: #000080">Degree Track</a></li>
-                                    <li><a href="/myprofile">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a class="nav-link disabled" href="/myprofile">Signed In As <%= currentUser.username%></a></li>
                                     <li><a href="/logout">Log out</a></li>
                             <% } %>
                         </ul>
