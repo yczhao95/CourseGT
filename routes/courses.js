@@ -7,7 +7,7 @@ var Comment = require("../models/comment");// this is for comments database setu
 //==========
 // courses ---> main page: index
 // courses ---> add course info : post in courses
-router.get("/courses", function(req,res) {
+router.get("/", function(req,res) {
         //res.render("courses", {courses:courses})
     //get all courses from DB
     Course.find({},  function(err, allCourses){
@@ -19,7 +19,7 @@ router.get("/courses", function(req,res) {
     })
 });
 
-router.post("/courses", function(req, res){
+router.post("/", function(req, res){
     //res.send("you send the post route");
    //get data from form and add to course array
    var courseid = req.body.courseid;
@@ -39,12 +39,12 @@ router.post("/courses", function(req, res){
 });
 
 // new - show forms to create course
-router.get("/courses/new", function(req, res){
+router.get("/new", function(req, res){
     res.render("courses/new.ejs");
 });
 
 //show more infor about a course
-router.get("/courses/:id", function(req, res){
+router.get("/:id", function(req, res){
     //find the course with provided id
     Course.findById(req.params.id).populate("comments").exec(function(err, foundCourse){
          if(err){
@@ -53,11 +53,12 @@ router.get("/courses/:id", function(req, res){
              //render the show template with that course
              console.log("find courses:");
              console.log(foundCourse);
-             res.render("courses/show", {course: foundCourse});
+             res.render("courses/show.ejs", {course: foundCourse});
          }
     });
 });
 
+//middleware
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();

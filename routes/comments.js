@@ -1,11 +1,13 @@
 var express = require("express");
-var router  = express.Router();
+var router  = express.Router({mergeParams: true});
 var Course  = require("../models/course");
 var Comment = require("../models/comment");
 // ========================
 // COMMENTR ROUTES
 // ========================
-router.get("/courses/:id/comments/new", isLoggedIn, function(req, res) {
+
+//comments new
+router.get("/new", isLoggedIn, function(req, res) {
     //find course by id
     Course.findById(req.params.id, function(err, course){
         if(err){
@@ -16,7 +18,8 @@ router.get("/courses/:id/comments/new", isLoggedIn, function(req, res) {
     });
 });
 
-router.post("/courses/:id/comments", isLoggedIn, function(req, res){
+//comments create
+router.post("/", isLoggedIn, function(req, res){
     //look up course using id
     // then push the comments in the courses
     Course.findById(req.params.id, function(err, course){
@@ -26,22 +29,29 @@ router.post("/courses/:id/comments", isLoggedIn, function(req, res){
             res.redirect("/courses");
         } else {
             Comment.create(req.body.comment, function(err, comment){
-               if(err){
+                if(err){
                    console.log(err);
-               } else {
-                   course.comments.push(comment);
-                   course.save();
-                   res.redirect("/courses/" + course._id);
-               }
+                } else {
+                    //add username and id to comment
+                    comment.author.id = req.user._id;
+                    comment.author.username = req.user.username;
+                    //save comment
+                    comment.save();
+                    course.comments.push(comment);
+                    var len = course.comments.length;
+                    course.rating = (course.rating * (len - 1) +  comment.rating) / len;
+                    course.difficulty = (course.difficulty * (len - 1) +  comment.difficulty) / len;
+                    course.workload = (course.workload * (len - 1) +  comment.workload) / len;
+                    course.save();
+                    res.redirect("/courses/" + course._id);
+                }
             });
         }
         
     });
-    //create new comment
-    //connect new comment to course
-    //redeirect show page
 });
 
+//middle ware
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();

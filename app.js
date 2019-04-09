@@ -8,7 +8,8 @@ var express     = require("express"),
     seedDB      = require("./seeds"),
     Comment     = require("./models/comment"),
     User        = require("./models/user")
-    
+
+//requiring routes
 var commentRoutes   = require("./routes/comments"),
     courseRoutes    = require("./routes/courses"),//this is for adding, showing, all the courses
     indexRoutes     = require("./routes/index"), // this is for showing all the user login page(login, register and logout)
@@ -19,6 +20,7 @@ var commentRoutes   = require("./routes/comments"),
 mongoose.connect("mongodb://localhost:27017/gt_course", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
+app.use(express.static(__dirname+"/public"));
 seedDB();
 
 // passport configuration
@@ -37,12 +39,12 @@ app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     next();
 });
-app.use(indexRoutes);
+
+app.use("/",indexRoutes);
+app.use("/courses/:id/comments",commentRoutes);
+app.use("/courses",courseRoutes);
 app.use(degreeRoutes);
 app.use(searchRoutes);
-app.use(commentRoutes);
-app.use(courseRoutes);
-
 
 
 

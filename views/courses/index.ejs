@@ -4,7 +4,6 @@
 <div class="container">
     <header class="jumbotron">
         <div class="container">
-            <h1>Welcome to GT-course</h1>
             <p>View all the cs courses</p>
             <p>    
                 <a class="btn btn-primary btn-large" href="/courses/new">Add new course</a>
@@ -12,16 +11,41 @@
         </div>
     </header>
     
-    <div class="col">
-        <% courses.forEach(function(course){ %>
-            <div class="row-md-3 row-sm-6">
-                
-                <a href="/courses/<%= course._id %>"><%= course.id%> <%= course.name%> </a>
-                    <%= course.professor%>
-                <span class="pull-right">GPA: <%= course.gpa%></span>
-                <hr>
-            </div>
-        <% }); %>
-    </div>
+     <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>CourseID</th>
+                <th>Course Name</th>
+                <th>GPA</th>
+                <th>Rating</th>
+                <th>Work Load</th>
+                <th>Difficulty</th>
+                <th>A%</th>
+                <th>B%</th>
+                <th>C%</th>
+                <th>D%</th>
+                <th>F%</th>
+                <th>W%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%courses.forEach(function(course) {%>
+                <tr>
+                    <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                    <td><%=course.name%></td>
+                    <td><%=course.gpa%></td>
+                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.rating%> <%}%></td>
+                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.workload%> <%}%></td>
+                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.difficulty%> <%}%></td>
+                    <td><%=course.a%></td>
+                    <td><%=course.b%></td>
+                    <td><%=course.c%></td>
+                    <td><%=course.d%></td>
+                    <td><%=course.f%></td>
+                    <td><%=course.w%></td>
+                </tr>
+            <% })%>
+        </tbody>
+        </table>
 </div>
 <%include ../partials/footer %>

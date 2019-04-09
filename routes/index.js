@@ -3,6 +3,7 @@ var router  = express.Router();
 var User    = require("../models/user");
 var passport    = require("passport");
     
+//route route
 router.get("/", function(req, res) {
     //res.send("this will be the navigation page");
     res.render("landing");
