@@ -39,6 +39,7 @@ app.use(function(req, res, next){
 });
 app.use(indexRoutes);
 app.use(degreeRoutes);
+app.use(myprofileRoutes);
 app.use(searchRoutes);
 app.use(commentRoutes);
 app.use(courseRoutes);

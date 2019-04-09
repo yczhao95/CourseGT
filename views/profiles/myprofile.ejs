@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <head>
+            <title> GT-COURSE</title>
+           <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        </head>
+        <script>
+            console.log("connect to js.");
+            var specification;
+           function myFunction() {
+              specification = document.getElementById("mySelect").value;
+              console.log(specification);
+              $("span.rp").replaceWith("<span class='rp'>" + specification + "</span>");
+              if(specification === "CPR") {
+                  $("ul").render("")
+                  
+              } else if(){
+              
+            }
+            
+        </script>
+        <body>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">CourseGT</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(!currentUser){ %>
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Sign up</a></li>
+                            <% } else {%>
+                                    <li><a href="/myprofile">My Profile</a></li>
+                                    <li><a href="/degreetrack">Degree Track</a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="/logout">Log out</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+
+<form action="/myprofile" method = "POST">
+  <h2>What is your major?</h2>
+  <legend>Please select one of the following</legend>
+
+  <input type="radio" value="MSCS" name="major">
+  <label for="MSCS">MSCS</label>
+ 
+  
+  <h2>What is your specification?</h2>
+  <legend>Please select one of the following</legend>
+  
+  <select name="specification" id="mySelect" onchange="myFunction()">
+  <option value="CPR">Computational Perception and Robotics</option>
+  <option value="CG">Computer Graphics</option>
+  <option value="CS">Computing Systems</option>
+  <option value="HCP">Human Centered Computing</option>
+  <option value="HPC">High Performance Computing</option>
+  <option value="HCI">Human-Computer Interaction</option>
+  <option value="II">Interactive Intelligence</option>
+  <option value="ML">Machine Learning</option>
+  <option value="MS">Modeling and Simulations</option>
+  <option value="SC-1">Scientific Computing </option>
+  <option value="SC-2"> Social Computing </option>
+  <option value="VA">Visual Analytics</option>
+  </select>
+  
+   <h2>Which course have your already taken?</h2>
+  <legend>Specification: <span class="rp"></span></legend>
+  
+  <ul>
+      <p>
+        <label><input type="checkbox" name="sports[]" value="cycling" /> cycling</label>
+        <label><input type="checkbox" name="sports[]" value="running" /> running</label>
+        <label><input type="checkbox" name="sports[]" value="visit gym" /> visit gym</label>
+        <label><input type="checkbox" name="sports[]" value="swimming" /> swimming</label>
+        <label><input type="checkbox" name="sports[]" value="team sports" /> team sport(s)</label>
+        <label><input type="checkbox" name="sports[]" value="other" /> other</label>
+    </p>
+      
+  </ul>
+  
+
+
+  <button type="submit">Enter</button>
+</form>
+
+
+
+<%include ../partials/footer %>
