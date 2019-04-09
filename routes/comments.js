@@ -5,7 +5,22 @@ var Comment = require("../models/comment");
 // ========================
 // COMMENTR ROUTES
 // ========================
-
+if (!String.prototype.padStart) {
+    String.prototype.padStart = function padStart(targetLength,padString) {
+        targetLength = targetLength>>0; //floor if number or convert non-number to 0;
+        padString = String((typeof padString !== 'undefined' ? padString : ' '));
+        if (this.length > targetLength) {
+            return String(this);
+        }
+        else {
+            targetLength = targetLength-this.length;
+            if (targetLength > padString.length) {
+                padString += padString.repeat(targetLength/padString.length); //append to original to ensure we are longer than needed
+            }
+            return padString.slice(0,targetLength) + String(this);
+        }
+    };
+}
 //comments new
 router.get("/new", isLoggedIn, function(req, res) {
     //find course by id
@@ -35,6 +50,12 @@ router.post("/", isLoggedIn, function(req, res){
                     //add username and id to comment
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    var yyyy = today.getFullYear();
+                    today = mm + '/' + dd + '/' + yyyy;
+                    comment.date = today;
                     //save comment
                     comment.save();
                     course.comments.push(comment);

@@ -86,7 +86,7 @@
                             <span class="fa fa-star <% if (comment.rating > 2.5) { %> checked <% } %>"></span>
                             <span class="fa fa-star <% if (comment.rating > 3.5) { %> checked <% } %>"></span>
                             <span class="fa fa-star <% if (comment.rating > 4.5) { %> checked <% } %>"></span>
-                            <span class="pull-right">posted 5 days ago by <strong><%=comment.author.username%></strong></span>
+                            <span class="pull-right">posted at <%=comment.date%> by <strong><%=comment.author.username%></strong></span>
                             <p>
                                 <%= comment.text%>
                             </p>

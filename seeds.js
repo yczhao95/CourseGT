@@ -123,8 +123,6 @@ var data = [
                 num_comment: 0
             },
         ],
-        num_review:0
-       
     }
     
 ]
