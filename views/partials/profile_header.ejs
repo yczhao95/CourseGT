@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <head>
+            <title> GT-COURSE</title>
+           <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="stylesheets/profile.css">
+        </head>
+        
+        <script>
+            function htmlDecode(input) {
+            var e = document.createElement('div');
+            e.innerHTML = input;
+            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+          }
+         var json_data = JSON.parse(htmlDecode("<%= JSON.stringify(json_data) %>"));
+         </script>
+        <script type="text/javascript" src="javascripts/profile.js"></script>
+
+        <body>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" style="color: #000080" href="/">CourseGT</a>
+                        <a class="navbar-brand" style="color: #000080" href="/courses">CourseList</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(!currentUser){ %>
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Sign up</a></li>
+                            <% } else {%>
+                                    <li><a href="/degreetrack" style="color: #000080">Degree Track</a></li>
+                                    <li><a href="/myprofile" style="color: #000080">My Profile</a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="/logout">Log out</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            

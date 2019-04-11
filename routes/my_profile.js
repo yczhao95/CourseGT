@@ -9,7 +9,7 @@ var json_data;
 
 const path = require("path");
 
-fs.readFile(path.resolve(__dirname, "../views/profiles/specification.json"), 
+fs.readFile(path.resolve(__dirname, "../public/jsons/specification.json"), 
              {"encoding": "utf8"}, 
               function(err, data) {
      if (err)
@@ -29,5 +29,7 @@ router.post("/myprofile", function(req, res){
     console.log(req.body);
     res.redirect("/myprofile");
 });
+
+
 
 module.exports = router;
