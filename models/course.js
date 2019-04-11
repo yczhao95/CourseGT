@@ -5,6 +5,7 @@ var courseSchema = new mongoose.Schema({
     id: String,
     name: String,
     gpa: Number,
+    description: String,
     a:  Number,
     b:  Number,
     c:  Number,

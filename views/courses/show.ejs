@@ -4,7 +4,7 @@
         <div class="col-md-3">
             <h2><a><%= course.id%> <%=course.name%></a></h2>
             <p>Average GPA: <%=course.gpa%></p>
-            <p>blah blah blah</p>
+            <p><%=course.description%></p>
             <% if (course.comments.length === 0) { %>
             <h5>
                 <em>No reviews yet.</em>
