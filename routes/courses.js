@@ -2,6 +2,8 @@ var express = require("express");
 var router  = express.Router();
 var Course  = require("../models/course");// this is for courses database setup
 var Comment = require("../models/comment");// this is for comments database setup
+var something = require("https://code.jquery.com/jquery-3.3.1.js");
+
 //==========
 //INDEX ROUTE
 //==========
@@ -64,6 +66,8 @@ function isLoggedIn(req, res, next){
         return next();
     }
     res.redirect("/login");
-}
+};
+//table sort
+
 
 module.exports = router;
