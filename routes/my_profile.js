@@ -7,9 +7,9 @@ var fs = require("fs");
 
 var json_data;
 
+const path = require("path");
 
-
-fs.readFile("/home/ubuntu/workspace/CourseGT/views/profiles/specification.json", 
+fs.readFile(path.resolve(__dirname, "../views/profiles/specification.json"), 
              {"encoding": "utf8"}, 
               function(err, data) {
      if (err)
