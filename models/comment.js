@@ -12,7 +12,8 @@ var commentSchema = new mongoose.Schema({
     workload:   Number,
     difficulty: Number,
     rating:     Number,
-    professor:  String 
+    professor:  String,
+    date:       String
 });
  
 module.exports = mongoose.model("Comment", commentSchema);
