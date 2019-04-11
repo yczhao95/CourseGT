@@ -20,7 +20,9 @@ var commentRoutes   = require("./routes/comments"),
 mongoose.connect("mongodb://localhost:27017/gt_course", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
+//
 app.use(express.static(__dirname+"/public"));
+
 seedDB();
 
 // passport configuration
