@@ -44,6 +44,7 @@ app.use("/",indexRoutes);
 app.use("/courses/:id/comments",commentRoutes);
 app.use("/courses",courseRoutes);
 app.use(degreeRoutes);
+app.use(myprofileRoutes);
 app.use(searchRoutes);
 
 

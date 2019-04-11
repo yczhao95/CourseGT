@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title> GT-COURSE</title>
+            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+            <style>
+                    body {
+                    background-color: white;
+                    }
+                    #landing-header {
+                    z-index: 1;
+                    position: relative;
+                    text-align: center;
+                    padding-top: 20vh;
+                    width: 30%;
+                    margin: 100px auto;
+                    }
+                    #landing-header h2 {
+                    color: #fff;
+                    }
+                    .slideshow { 
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    }
+                    .slideshow li { 
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    opacity: 0;
+                    z-index: 0;
+                    animation: imageAnimation 50s linear infinite; 
+                    }
+                    .slideshow li:nth-child(1) { 
+                    background-image: url(https://res.cloudinary.com/dpcbzfiye/image/upload/w_1620,c_fill,dpr_auto,f_auto,q_auto,fl_progressive/v1522246410/g4egablywomesvkdd8kt.jpg) 
+                    }
+                    .slideshow li:nth-child(2) { 
+                    background-image: url(https://www.gatech.edu/sites/default/files/pictures/expanded-page/visit-tech.png);
+                    animation-delay: 10s; 
+                    }
+                    .slideshow li:nth-child(3) { 
+                    background-image: url(https://www.gatech.edu/sites/default/files/pictures/expanded-page/about-tech.png);
+                    animation-delay: 20s; 
+                    }
+                    .slideshow li:nth-child(4) { 
+                    background-image: url(https://www.gatech.edu/sites/default/files/uploads/images/superblock_images/tower.png);
+                    animation-delay: 30s; 
+                    }
+                    .slideshow li:nth-child(5) { 
+                    background-image: url(https://1v1ulb40yc772j8uk01kozpe-wpengine.netdna-ssl.com/wp-content/uploads/2018/06/Georgia-Tech-EBB1.jpg);
+                    animation-delay: 40s; 
+                    }
+                    @keyframes imageAnimation { 
+                    0% { 
+                        opacity: 0; 
+                        animation-timing-function: ease-in;
+                    }
+                    10% {
+                    opacity: 1;
+                    animation-timing-function: ease-out;
+                    }
+                    20% {
+                    opacity: 1
+                    }
+                    30% {
+                    opacity: 0
+                    }
+                    }
+                    .no-cssanimations .slideshow li {
+                    opacity: 1;
+                    }
+            </style>
+        
+        </head>
+        <body>
+            <nav class="navbar navbar-default" style="z-index:1;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">CourseGT</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(!currentUser){ %>
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Sign up</a></li>
+                            <% } else {%>
+                                    <li><a href="/myprofile">My Profile</a></li>
+                                    <li><a href="/degreetrack">Degree Track</a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="/logout">Log out</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>

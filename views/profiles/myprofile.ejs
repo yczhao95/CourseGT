@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <head>
+            <title> GT-COURSE</title>
+           <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        </head>
+        <style>
+                   /* The container */
+        .container {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          font-size: 14px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        
+        /* Hide the browser's default checkbox */
+        .container #box {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+        
+        /* Create a custom checkbox */
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 22px;
+          width: 22px;
+          background-color: #eee;
+        }
+        
+        /* On mouse-over, add a grey background color */
+        .container:hover #box ~ .checkmark {
+          background-color: #ccc;
+        }
+        
+        /* When the checkbox is checked, add a blue background */
+        .container #box:checked ~ .checkmark {
+          background-color: #2196F3;
+        }
+        
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+        
+        /* Show the checkmark when checked */
+        .container #box:checked ~ .checkmark:after {
+          display: block;
+        }
+        
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+          left: 9px;
+          top: 5px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        .slidecontainer {
+  width: 80%;
+}
+
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 15px;
+          border-radius: 5px;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+        
+        .slider:hover {
+          opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: peru;
+          cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #4CAF50;
+          cursor: pointer;
+        }
+        @charset "UTF-8";
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  font-size: 1.5em;
+  max-width: 31.25em;
+}
+
+label {
+  display: flex;
+  position: relative;
+  margin-bottom: 0.75em;
+  padding: 0.375em 0.375em 0.375em 1.875em;
+  font-family: 'Helvetica', sans-serif;
+  transition: color 0.15s ease-out;
+}
+label:active {
+  -webkit-transform: translateY(0.03125em);
+          transform: translateY(0.03125em);
+}
+label:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid lightgray;
+  border-radius: 0.1875em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 0;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+label:after {
+  content: '🙂';
+  position: absolute;
+  top: 0.25em;
+  left: 0.125em;
+  font-size: 1.25em;
+  opacity: 0;
+  -webkit-transform: translateY(0.1875em);
+          transform: translateY(0.1875em);
+  -webkit-animation: emoji-out 0.5s forwards;
+          animation: emoji-out 0.5s forwards;
+  transition: opacity 0.15s 0.3s ease-out, -webkit-transform 0.2s 0.3s ease-out;
+  transition: opacity 0.15s 0.3s ease-out, transform 0.2s 0.3s ease-out;
+  transition: opacity 0.15s 0.3s ease-out, transform 0.2s 0.3s ease-out, -webkit-transform 0.2s 0.3s ease-out;
+}
+
+[type="checkbox"] {
+  display: none;
+}
+[type="checkbox"]:checked + label {
+  color: peru;
+}
+[type="checkbox"]:checked + label:before {
+  background-color: lightyellow;
+  border-color: darkkhaki;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.1875em 0.375em -0.1875em;
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation: emoji-in 1s forwards;
+          animation: emoji-in 1s forwards;
+  transition-delay: 0s;
+}
+[type="checkbox"]:checked + label:active:after {
+  -webkit-transform: translateY(0.03125em);
+          transform: translateY(0.03125em);
+}
+
+@-webkit-keyframes emoji-in {
+  10% {
+    content: "😆";
+  }
+  10% {
+    content: "😆";
+  }
+  20% {
+    content: "😄";
+  }
+  30% {
+    content: "😁";
+  }
+  50% {
+    content: "🙂";
+  }
+  60% {
+    content: "🙂";
+  }
+  70% {
+    content: "😉";
+  }
+  80% {
+    content: "😉";
+  }
+  90% {
+    content: "🙂";
+  }
+  100% {
+    content: "🙂";
+  }
+}
+
+@keyframes emoji-in {
+  10% {
+    content: "😆";
+  }
+  10% {
+    content: "😆";
+  }
+  20% {
+    content: "😄";
+  }
+  30% {
+    content: "😁";
+  }
+  50% {
+    content: "🙂";
+  }
+  60% {
+    content: "🙂";
+  }
+  70% {
+    content: "😉";
+  }
+  80% {
+    content: "😉";
+  }
+  90% {
+    content: "🙂";
+  }
+  100% {
+    content: "🙂";
+  }
+}
+@-webkit-keyframes emoji-out {
+  from {
+    content: "😕";
+  }
+  to {
+    content: "☹️";
+  }
+}
+@keyframes emoji-out {
+  from {
+    content: "😕";
+  }
+  to {
+    content: "☹️";
+  }
+}
+
+        
+
+        </style>
+
+        <script>
+            console.log("connect to js.");
+            var num_checkbox=2;
+            var specification;
+            function htmlDecode(input){
+                var e = document.createElement('div');
+                e.innerHTML = input;
+                return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+              }
+             var json_data = JSON.parse(htmlDecode("<%= JSON.stringify(json_data) %>"));
+
+
+            function changetoHTML(data, part1, part2, part3) {
+                
+                var result = "";
+                if(part3 != "") {
+                    data[part1][part2][part3].forEach(function(element) {
+                         var courseID = element.split(" ")[0];
+                         var courseName = element;
+                         result = '<input id="checkbox-' +num_checkbox +  '" type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="checkbox-' + num_checkbox  +'">' + courseName + '</label>' + result;
+                         num_checkbox = num_checkbox + 1;
+                    });
+                } else {
+                     data[part1][part2].forEach(function(element) {
+                         var courseID = element.split(" ")[0];
+                         var courseName = element;
+                         result = '<input id="checkbox-'+num_checkbox + '"type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="checkbox-' + num_checkbox + '">' + courseName + '</label>' + result;
+                        num_checkbox = num_checkbox + 1;
+
+                    });
+                }
+                return result;
+            }
+            
+            
+
+         
+           function myFunction() {
+              specification = document.getElementById("mySelect").value;
+              console.log(specification);
+              
+              $("span.rp").replaceWith('<span class="rp">' + specification + '</span>');
+              
+              if(specification === "CPR") {
+                  
+                  $("header.test").replaceWith('<header  class="test">'+
+                '<p>Algorithms: Pick one (1) of:</p>'+    
+                    changetoHTML(json_data, "CPR", "core","first") +
+                '<p>And pick one of:</p>'+
+                    changetoHTML(json_data, "CPR", "core","second") +
+                '<p>Pick three (3) courses from Perception and Robotics, with at least one course from each.</p>'+
+                '<p>Perception</p>'+
+                     changetoHTML(json_data, "CPR", "electives","first") +
+                '<p>Robotics</p>'+
+                    changetoHTML(json_data, "CPR", "electives","second") +
+                '</header>');
+                
+                
+              } else if(specification === "CG") {
+                  
+                $("header.test").replaceWith('<header  class="test">'+
+                '<p>Algorithms: Pick one (1) of:</p>'+    
+                    changetoHTML(json_data, "CG", "core","first") +
+                '<p>And pick one of:</p>'+
+                    changetoHTML(json_data, "CG", "core","second") +
+                '<p>Pick three (3) courses from Perception and Robotics, with at least one course from each.</p>'+
+                     changetoHTML(json_data, "CG", "electives","") +
+                '</header>');
+                  
+              } else if(specification === "CS") {
+                  
+                 $("header.test").replaceWith('<header  class="test">'+
+                '<p>Algorithms: Pick one (1) of:</p>'+    
+                    changetoHTML(json_data, "CS", "core","first") +
+                '<p>And pick two of:</p>'+
+                    changetoHTML(json_data, "CS", "core","second") +
+                '<p>Pick three (3) courses from</p>'+
+                     changetoHTML(json_data, "CS", "electives","") +
+                '</header>');
+                  
+              } else if(specification === "HCC") {
+                  
+                  $("header.test").replaceWith('<header class="test">'+
+                '<p>Core Courses: Pick three of:</p>'+    
+                    changetoHTML(json_data, "HCC", "core","") +
+                '<p>And pick two of:</p>'+
+                    changetoHTML(json_data, "HCC", "electives","") +
+                '</header>');
+                  
+              } else if(specification === "HPC") {
+                  
+                   $("header.test").replaceWith('<header class="test">'+
+                '<p>Core Courses: Pick two of:</p>'+    
+                    changetoHTML(json_data, "HPC", "core","") +
+                '<p>And pick three of:</p>'+
+                    changetoHTML(json_data, "HPC", "electives","") +
+                '</header>');
+                  
+              } else if(specification === "HCI") {
+                   $("header.test").replaceWith('<header class="test">'+
+                '<p>Core Courses: Pick two of:</p>'+    
+                    changetoHTML(json_data, "HCI", "core","") +
+                '<p>Pick three (3) courses from the two sub-areas below, including at least one from each sub-area:</p>'+
+                '<p>Sub-area: Design and evaluation concepts</p>'+
+                    changetoHTML(json_data, "HCI", "electives","first") +
+                '<p>Sub-area: Interactive technology</p>'+
+                    changetoHTML(json_data, "HCI", "electives","second") +
+                '</header>');
+              } else if(specification === "II") {
+                    $("header.test").replaceWith('<header class="test">'+
+                '<p>Core Courses: Take one (1) course from:</p>'+   
+                '<p>Algorithms and Design</p>'+   
+                    changetoHTML(json_data, "II", "core","first") +
+                '<p>And, two (2) courses from:</p>'+   
+                    changetoHTML(json_data, "II", "core","second") +
+
+                '<p>Pick two (2) courses from:</p>'+
+                '<p>Sub-area: Interaction</p>'+
+                    changetoHTML(json_data, "II", "electives","first") +
+                '<p>Sub-area: Cognition</p>'+
+                    changetoHTML(json_data, "II", "electives","second") +
+                '</header>');
+              } else if(specification === "ML") {
+                  $("header.test").replaceWith('<header class="test">'+
+                '<p>Core Courses: Algorithms: Pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "ML", "core","first") +
+                '<p>And, pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "ML", "core","second") +
+                '<p>Pick three (3) of:</p>'+
+                    changetoHTML(json_data, "ML", "electives","") +
+                '</header>');
+              } else if(specification === "MS") {
+                   $("header.test").replaceWith('<header  class="test">'+
+                '<p>Core Courses: </p>'+   
+                    changetoHTML(json_data, "MS", "core","first") +
+                '<p>And, pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "MS", "core","second") +
+                '<p>Pick three (3) of:</p>'+
+                    changetoHTML(json_data, "MS", "electives","") +
+                '</header>');
+              } else if(specification === "SC-1") {
+                  
+                   $("header.test").replaceWith('<header  class="test">'+
+                '<p>Core Courses: </p>'+   
+                    changetoHTML(json_data, "SC-1", "core","first") +
+                '<p>Pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "SC-1", "core","second") +
+                '<p>Pick three (3) of:</p>'+
+                    changetoHTML(json_data, "SC-1", "electives","") +
+                '</header>');
+                  
+                  
+              } else if(specification === "SC-2") {
+                  
+                   $("header.test").replaceWith('<header  class="test">'+
+                '<p>Core Courses: Pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "SC-2", "core","first") +
+                '<p>Pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "SC-2", "core","second") +
+                '<p>Pick three (3) more classes including additional classes from the above and:</p>'+
+                    changetoHTML(json_data, "SC-2", "electives","") +
+                '</header>');
+                  
+                  
+              } else if(specification === "VA") {
+                  
+                   $("header.test").replaceWith('<header  class="test">'+
+                '<p>Core Courses:</p>'+   
+                    changetoHTML(json_data, "VA", "core","first") +
+                '<p>Pick one (1) of:</p>'+   
+                    changetoHTML(json_data, "VA", "core","second") +
+                '<p>Pick three from:</p>'+
+                    changetoHTML(json_data, "SC-2", "electives","") +
+                '</header>');
+                  
+                  
+              } else {
+                  
+                   $("header.test").replaceWith('<header  class="test">'+
+                '</header>');
+                  
+              }
+             
+             
+            }
+            var slider = document.getElementById("myRange");
+            
+           
+            
+        </script>
+        <body>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">CourseGT</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(!currentUser){ %>
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Sign up</a></li>
+                            <% } else {%>
+                                    <li><a href="/myprofile">My Profile</a></li>
+                                    <li><a href="/degreetrack">Degree Track</a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="/logout">Log out</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            
+<div class="container">
+    <form action="/myprofile" method = "POST">
+        <p><font size="5">What is Your Major?</font></p>
+        <legend><small>Please select one of the following</small></legend>
+         <input id="checkbox-1" type="checkbox" name="major" value="MSCS" checked="checked"/><label for="checkbox-1">MSCS</label>
+          
+        <p></p>
+        <p><font size="5">What is your specification?</font></p>
+        <legend><small>Please select one of the following</small></legend>
+        
+        <select name="specification" id="mySelect" onchange="myFunction()">
+        <option value=""></option>
+        <option value="CPR">Computational Perception and Robotics</option>
+        <option value="CG">Computer Graphics</option>
+        <option value="CS">Computing Systems</option>
+        <option value="HCC">Human Centered Computing</option>
+        <option value="HPC">High Performance Computing</option>
+        <option value="HCI">Human-Computer Interaction</option>
+        <option value="II">Interactive Intelligence</option>
+        <option value="ML">Machine Learning</option>
+        <option value="MS">Modeling and Simulations</option>
+        <option value="SC-1">Scientific Computing </option>
+        <option value="SC-2"> Social Computing </option>
+        <option value="VA">Visual Analytics</option>
+        </select>
+        
+        <p></p>
+        
+        <p><font size="5">Which course have your already taken?</font></p>
+        <legend><small>Specification: <span class="rp"></span></small></legend>
+        
+        <div class="container">
+            <header class="test">
+            </header>
+        </div>
+        
+         <p><font size="5">How many courses do you plan to take?</font></p>
+          <div class="slidecontainer">
+          <input type="range" name = "courseToTake" min="0" max="8" value="0" class="slider" id="myRange1">
+          <p>The number of Courses: <span id="demo1"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange1");
+        var output1 = document.getElementById("demo1");
+        output1.innerHTML = slider.value;
+        slider.oninput = function() {
+          output1.innerHTML = this.value;
+        }
+        </script>
+        
+         <p><font size="5">How many hours do you plan to spend course/week?</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "courseHours" min="0" max="50" value="0" class="slider" id="myRange2">
+          <p>Hours: <span id="demo2"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange2");
+        var output2 = document.getElementById("demo2");
+        output2.innerHTML = slider.value;
+        slider.oninput = function() {
+          output2.innerHTML = this.value;
+        }
+        </script>
+        
+        <p><font size="5">What's the average difficulty of courses you prefer?</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3">
+          <p>Difficulty level: <span id="demo3"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange3");
+        var output3 = document.getElementById("demo3");
+        output3.innerHTML = slider.value;
+        slider.oninput = function() {
+          output3.innerHTML = this.value;
+        }
+        </script>
+        
+       
+        
+        
+        <button class="btn btn-primary btn-large"  type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+<%include ../partials/footer %>

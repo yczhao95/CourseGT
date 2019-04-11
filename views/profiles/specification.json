@@ -1,0 +1,305 @@
+{
+	"CPR": {
+		"core": {
+			"first": [
+				"CS6515  Introduction to Graduate Algorithms",
+				"CS6520  Computational Complexity Theory",
+				"CS6550 Design and Analysis of Algorithms",
+				"CS7520  Approximation Algorithms",
+				"CS7530  Randomized Algorithms",
+				"CSE6140  Computational Science and Engineering Algorithms"
+			],
+			"second": [
+				"CS6601 Artificial Intelligence",
+				"CS7641 Machine Learning"
+			]
+		},
+		"electives": {
+			"first": [
+				"CS6475 Computational Photography",
+				"CS6476 Computer Vision",
+				"CS7499 3D Reconstruction",
+				"CS7636 Computational Perception",
+				"CS7650 Natural Language",
+				"CS8803 Special Topics: Multiview Geometry in Computer Vision"
+			],
+			"second": [
+				"CS7630 Autonomous Robotics",
+				"CS7631 Autonomous Multi-Robot Systems",
+				"CS7633 Human-Robot Interaction",
+				"CS7649 Robot Intelligence: Planning",
+				"CS8803-O01 Artificial Intelligence for Robotics"
+			]
+		}
+
+	},
+
+	"CG": {
+		"core": {
+			"first": ["CS6491 Foundations of Computer Graphics"],
+			"second": [
+				"CS6505 Computability, Algorithms, and Complexity",
+				"CS6515  Introduction to Graduate Algorithms"
+			]
+		},
+		"electives": [
+			"CS6457 Video Game Design and Programming",
+			"CS6475 Computational Photography",
+			"CS6476 Computer Vision",
+			"CS6485 Visualization Methods for Science and Engineering",
+			"CS6764 Geometric Modeling",
+			"CS7490 Advanced Image Synthesis",
+			"CS7491 3D Complexity Techniques for Graphics, Modeling, and Animation",
+			"CS7492 Simulation of Biology",
+			"CS7496 Computer Animation",
+			"CS7497 Virtual Environments"
+		]
+	},
+
+	"CS": {
+		"core": {
+			"first": ["CS6505 Computability, Algorithms, and Complexity",
+				"CS6515  Introduction to Graduate Algorithms"
+			],
+			"second": ["CS6210 Advanced Operating Systems", "CS6241 Compiler Design", "CS6250 Computer Networks", "CS6290 High-Performance Computer Architecture", "CS6300 Software Development Process", "CS6301 Advanced Topics in Software Engineering", "CS6390 Programming Languages", "CS6400 Database Systems Concepts and Designs"]
+		},
+		"electives": [
+			"CS6035 Introduction to Information Security",
+			"CS6200 Graduate Introduction to Operating Systems",
+			"CS6220 Big Data Systems and Analytics",
+			"CS6235 Real Time Systems",
+			"CS6238 Secure Computer Systems",
+			"CS6260 Applied Cryptography",
+			"CS6262 Network Security",
+			"CS6263 Intro to Cyber Physical Systems Security",
+			"CS6291 Embedded Software Optimization",
+			"CS6310 Software Architecture and Design",
+			"CS6340 Software Analysis and Testing",
+			"CS6365 Introduction to Enterprise Computing",
+			"CS6422 Database System Implementation",
+			"CS6550 Design and Analysis of Algorithms",
+			"CS6675 Advanced Internet Computing Systems and Applications",
+			"CS7210 Distributed Computing",
+			"CS7260 Internetworking Architectures and Protocols",
+			"CS7270 Networked Applications and Services",
+			"CS7280 Network Science",
+			"CS7290 Advanced Topics in Microarchitecture",
+			"CS7292 Reliability and Security in Computer Architecture",
+			"CS7560 Theory of Cryptography",
+			"CS8803 FPL Special Topics: Foundations of Programming Languages",
+			"CSE6220 High Performance Computing"
+		]
+	},
+
+	"HCC": {
+		"core": ["CS6451 Intro to HCC", "CS6452 Prototyping Interactive Systems", "CS7455 Issues in HCC"],
+		"electives": [
+			"CS6455 User Interface Design and Evaluation",
+			"CS6456 User Interface Software",
+			"CS6460 Educational Technology: Conceptual Foundations",
+			"CS6465 Computational Journalism",
+			"CS6470 Design of Online Communities",
+			"CS6474 Social Computing",
+			"CS6476 Computer Vision",
+			"CS6601 Artificial Intelligence",
+			"CS6750 Human-Computer Interaction",
+			"CS6795 Introduction to Cognitive Science",
+			"CS7450 Information Visualization",
+			"CS7460 Collaborative Computing",
+			"CS7461 Machine Learning",
+			"CS7470 Mobile and Ubiquitous Computing",
+			"CS7476 Advanced Computer Vision",
+			"CS7610 Modeling and Design",
+			"CS7637 Knowledge-Based AI",
+			"CS7620 Case-based Reasoning",
+			"CS7650 Natural Language",
+			"CS7695 Philosophy of Cognition",
+			"CS7697 Cognitive Models of Science and Technology",
+			"CS7790 Cognitive Modeling",
+			"CS8803 Computational Creativity",
+			"CS8803 Expressive AI",
+			"CS8803 Game AI",
+			"CS8803 Human Robot Interaction",
+			"CS8803 Computers, Communications & International Development",
+			"CS8803 Computational Social Science"
+		]
+	},
+
+	"HPC": {
+
+		"core": ["CSE6140 Computational Science and Engineering Algorithms", "CSE6220 High Performance Computing"],
+		"electives": [
+			"CSE6221 Multicore Computing: Concurrency and Parallelism on the Desktop",
+			"CS/CSE6230 High-Performance Parallel Computing: Tools and Applications",
+			"CS6241 Compiler Design",
+			"CS6290 High-Performance Computer Architecture",
+			"CS/CSE8803 Special Topics: Parallel Numerical Algorithms",
+			"CSE6236 Parallel and Distributed Simulation",
+			"CSE8803 Special Topics: Hot Topics in Parallel Computing"
+		]
+	},
+	"HCI": {
+		"core": ["CS6456 Principles of User Interface Software", "CS6750 Human-Computer Interaction"],
+		"electives": {
+
+			"first": ["CS6010 Principles of Design",
+				"CS6320 Software Requirements Analysis and Specification",
+				"CS6455 User Interface Design and Evaluation",
+				"CS6460 Educational Technology: Conceptual Foundations",
+				"CS6465 Computational Journalism",
+				"CS6470 Design of Online Communities",
+				"CS6795 Introduction to Cognitive Science",
+				"CS7465 Educational Technology: Design and Evaluation",
+				"CS7467 Computer-Supported Collaborative Learning",
+				"CS7790 Cognitive Modeling"
+			],
+			"second": ["CS6763 Design of Design Environments",
+				"CS6770 Mixed Reality Experience Design",
+				"CS7450 Information Visualization",
+				"CS7460 Collaborative Computing",
+				"CS7470 Mobile and Ubiquitous Computing"
+			]
+		}
+	},
+	"II": {
+		"core": {
+			"first": ["CS6300 Software Development Process",
+				"CS6301 Advanced Topics in Software Engineering",
+				"CS6505 Computability, Algorithms, and Complexity",
+				"CS6515 Introduction to Graduate Algorithms"
+			],
+			"second": ["CS6601 Artificial Intelligence",
+				"CS7620 Case-Based Reasoning",
+				"CS7637 Knowledge-Based AI",
+				"CS7641 Machine Learning"
+			]
+		},
+		"electives": {
+			"first": ["CS6440 Introduction to Health Informatics",
+				"CS6460 Educational Technology: Conceptual Foundations",
+				"CS6465 Computational Journalism",
+				"CS6471 Computational Social Science",
+				"CS6750 Human-Computer Interaction ",
+				"CS7632 Game AI",
+				"CS7634 AI Storytelling in Virtual Worlds",
+				"CS7650 Natural Language",
+				"CS8803 Special Topics: Advanced Game AI"
+			],
+			"second": ["CS6795 Introduction to Cognitive Science",
+				"CS7610 Modeling and Design",
+				"CS8803 Special Topics: Computational Creativity"
+			]
+
+		}
+
+	},
+	"ML": {
+		"core": {
+			"first": [
+				"CS6505 Computability, Algorithms, and Complexity",
+				"CS6515 Introduction to Graduate Algorithms",
+				"CS6520 Computational Complexity Theory",
+				"CS6550 Design and Analysis of Algorithms",
+				"CS7510 Graph Algorithms",
+				"CS7520 Approximation Algorithms",
+				"CS7530 Randomized Algorithms",
+				"CSE6140 Computational Science and Engineering Algorithms"
+			],
+			"second": [
+				"CS7641 Machine Learning",
+				"CSE6740 Computational Data Analysis: Learning, Mining, and Computation"
+			]
+
+		},
+		"electives": [
+			"CS6220 Big Data Systems & Analysis",
+			"CS6476 Computer Vision ",
+			"CS7535 Markov Chain Monte Carlo",
+			"CS7540 Spectral Algorithms",
+			"CS7545 Machine Learning Theory",
+			"CS7616 Pattern Recognition",
+			"CS7626 Behavioral Imaging ",
+			"CS7642 Reinforcement Learning and Decision Making",
+			"CS7643 Deep Learning ",
+			"CS7646 Machine Learning for Trading",
+			"CS7650 Natural Language",
+			"CS8803 Special Topics: Probabilistic Graph Models",
+			"CSE6240 Web Search and Text Mining",
+			"CSE6242 Data and Visual Analytics",
+			"CSE6250 Big Data for Health",
+			"ISYE 6416 Computational Statistics",
+			"ISYE 6420 Bayesian Methods",
+			"ISYE 6664 Stochastic Optimization"
+		]
+	},
+	"MS": {
+		"core": {
+			"first": ["CSE6730 Modeling and Simulation: Foundations and Implementation"],
+			"second": ["CSE6220 High Performance Computing",
+				"ISYE6644 Simulation",
+				"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+			]
+		},
+		"electives": [
+			"CSE6220 High Performance Computing ",
+			"CSE6236 Parallel and Distributed Simulation",
+			"CSE/CHEM 8803 Special Topics: Quantum Information, Computation, and Simulation",
+			"INTA6742 Modeling, Simulation and Military Gaming",
+			"ISYE6644 Simulation",
+			"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+		]
+	},
+	"SC-1": {
+		"core": {
+			"first": ["CSE/MATH6643 Numerical Linear Algebra"],
+			"second": ["CSE/MATH6644 Iterative Methods for Systems of Equations",
+				"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+			]
+		},
+		"electives": [
+			"CS/CSE6230 High-Performance Parallel Computing: Tools and Applications",
+			"CS/CSE8803 Special Topics: Parallel Numerical Algorithms",
+			"CSE6140 Computational Science and Engineering Algorithms",
+			"CSE6220 High Performance Computing",
+			"CSE/MATH 6644 Iterative Methods for Systems of Equations",
+			"CSE8803 Special Topics: Algorithms for Medical Imaging and Inverse Problems",
+			"CSE8803/CHEM 6485 Computational Chemistry",
+			"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+		]
+	},
+	"SC-2": {
+		"core": {
+			"first": ["CSE/MATH6643 Numerical Linear Algebra"],
+			"second": ["CSE/MATH6644 Iterative Methods for Systems of Equations",
+				"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+			]
+		},
+		"electives": [
+			"CS/CSE6230 High-Performance Parallel Computing: Tools and Applications",
+			"CS/CSE8803 Special Topics: Parallel Numerical Algorithms",
+			"CSE6140 Computational Science and Engineering Algorithms",
+			"CSE6220 High Performance Computing",
+			"CSE/MATH6644 Iterative Methods for Systems of Equations",
+			"CSE8803 Special Topics: Algorithms for Medical Imaging and Inverse Problems",
+			"CSE8803/CHEM6485 Computational Chemistry",
+			"MATH6640 Introduction to Numerical Methods for Partial Differential Equations"
+		]
+	},
+	"VA": {
+		"core": {
+			"first": ["CS7450 Information Visualization"],
+			"second": ["CSE6740 Computational Data Analysis", "CSE6242 Data and Visual Analytics"]
+		},
+		"electives": [
+			"CS6456 Principles of User Interface Software",
+			"CS6465 Computational Journalism",
+			"CS6485 Visualization Methods in Science and Engineering",
+			"CS6490 Computer Graphics",
+			"CS6750 Human-Computer Interaction",
+			"CS6795 Introduction to Cognitive Science",
+			"CSE6242 Data and Visual Analytics",
+			"CS8803 VDS Visual Data Analytics"
+		]
+
+	}
+}
