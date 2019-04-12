@@ -1,6 +1,5 @@
 <% include ../partials/header %>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    
+
 <div class="container">
     <header class="jumbotron">
         <div class="container">
@@ -11,7 +10,7 @@
         </div>
     </header>
     
-     <table class="table table-striped table-bordered table-sm">
+     <table data-toggle="table" id = "maintable" class="table table-striped">
         <thead>
             <tr>
                 <th>CourseID</th>
@@ -28,6 +27,15 @@
                 <th>W%</th>
             </tr>
         </thead>
+        <script>
+            $(document).ready(function () {
+            $('#maintable').DataTable();
+            $('#maintbale').DataTable({
+            "ordering": false // false to disable sorting (or any other option)
+            });
+            $('.dataTables_length').addClass('bs-select');
+            });
+        </script>
         <tbody>
             <%courses.forEach(function(course) {%>
                 <tr>

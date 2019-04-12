@@ -33,7 +33,7 @@
         <div class="col-md-9">
             <div class="thumbnail">
                 <div class="caption-full">
-                                <table class="table table-striped">
+                <table id = "proftable" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Professor</th>
@@ -50,6 +50,16 @@
                     
                 </tr>
                 </thead>
+                <script>
+                    $(document).ready(function () {
+                    $('#proftable').DataTable({
+                        "order": [[ 1, "desc" ]],
+                        "bFilter" : false,               
+                        "bLengthChange": false,
+                        "paging":false
+                    });
+                    })
+                </script>
                 <tbody>
                 <%course.histories.forEach(function(history) {%>
                     <tr>
@@ -91,7 +101,7 @@
                                 <%= comment.text%>
                             </p>
                             <div class="col-md-15">
-                                <button class="btn-small btn-warning" style = "border-radius: 5px">Professor: <%=comment.professor%></button>
+                                <button class="btn-small btn-warning" style = "border-radius: 5px"><%=comment.professor%></button>
                                 <button type="button" class= "btn-small btn-warning" style = "border-radius: 5px"><%=comment.workload%>hrs/week</button>
                                 <%if(comment.difficulty == 1) {%>
                                     <button type="button" class="btn-small btn-warning" style = "border-radius: 5px">WATER</button>
