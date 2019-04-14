@@ -37,6 +37,7 @@ var courseSchema = new mongoose.Schema({
     workload:   Number,
     difficulty: Number,
     rating:     Number,
+    score: Number
 });
 
 module.exports = mongoose.model("Course", courseSchema);

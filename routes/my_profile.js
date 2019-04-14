@@ -7,6 +7,7 @@ var fs = require("fs");
 
 var json_data;
 
+
 const path = require("path");
 
 fs.readFile(path.resolve(__dirname, "../public/jsons/specification.json"), 
@@ -17,7 +18,6 @@ fs.readFile(path.resolve(__dirname, "../public/jsons/specification.json"),
      else {
         json_data = JSON.parse(data);  
         console.log(json_data);
-
      }
  });
 
@@ -26,10 +26,281 @@ router.get("/myprofile", function(req, res){
 });
 
 router.post("/myprofile", function(req, res){
-    console.log(req.body);
-    res.redirect("/myprofile");
+    var survey = req.body;
+    console.log(survey);
+    var courseToTake = survey.courseToTake;
+    var courseHours = parseInt(survey.courseHours,10);
+    var courseHours_up = courseHours + 5;
+    var courseHours_down = courseHours - 5;
+
+    var courseDiff = parseInt(survey.courseDiff,10);
+    var courseDiff_up = courseDiff + 0.5;
+    var courseDiff_down = courseDiff - 0.5;
+    
+    console.log("hours:---");
+    console.log(courseHours_up);
+    console.log(courseHours_down);
+    console.log(courseDiff_up);
+    console.log(courseDiff_down);
+    console.log("hours:----");
+
+    
+    var specification = survey.specification;
+    var specification_data = json_data[specification];
+    
+    // console.log("specification_data:");
+    // console.log(specification_data);
+    //here we need to do the basic filer, filter the course list based on courseHours+-5 and courseDiff+-0.5
+     Course.find({ $and: [ { workload: { $gt: courseHours_down } }, 
+                           { workload: { $lt: courseHours_up } }, 
+                            {difficulty:{$gt: courseDiff_down}},
+                            {difficulty:{$lt: courseDiff_up}} ] },  function(err, filteredCourses){
+        if(err){
+            console.log("err");
+        } else {
+            console.log("find candidateCourses!");
+            var candidateCourses;
+            var min_workload = 1000;
+            var max_workload = 0;
+            var min_gpa = 1000;
+            var max_gpa = -1;
+            var min_rating = 1000;
+            var max_rating = -1;
+            var min_diff = 1000;
+            var max_diff = -1;
+            candidateCourses = filteredCourses;
+            // using workload, rating, difficulty and GPA weight
+            // normalize the course info into 0-1 , MIN-MAX
+              Course.find({ $and: [ { workload: { $gt: 0 } } , 
+                                    {difficulty:{$gt: 0} }  ,  
+                                    {gpa : {$gt: 0}} ,
+                                    {rating :{$gt : 0}  }]},
+                                    function(err, filterdata){
+                    if(err){
+                        console.log("err");
+                    } else {
+                        
+                        for(var i = 0; i < filterdata.length; i++) {
+                            
+                            var element = filterdata[i];
+                            min_workload = Math.min(min_workload, element.workload);
+                            max_workload = Math.max(max_workload, element.workload);
+                            min_rating = Math.min(min_rating, element.rating);
+                            max_rating = Math.max(max_rating, element.rating);
+                            min_diff = Math.min(min_diff, element.difficulty);
+                            max_diff = Math.max(max_diff, element.difficulty);
+                            min_gpa = Math.min(min_gpa, element.gpa);
+                            max_gpa = Math.max(max_gpa, element.gpa);
+                            
+                            checkFinished(survey.core, element);
+                            checkFinished(survey.electives, element);
+                            
+                           
+                            
+                            
+                            
+                        }
+                        
+                        // console.log("gpa:");
+                        // console.log(min_gpa);
+                        //compute the score 
+                        
+                        if(candidateCourses == null) {
+                            
+                            console.error("No candidateCourses");
+                            
+                        } else {
+                            
+                            
+                            for(var i = 0; i < candidateCourses.length; i++) {
+                                
+                                var element = candidateCourses[i];
+                                var temp_workload = (candidateCourses[i].workload - min_workload) / (max_workload - min_workload) * 1.0;
+                                var temp_rating = (candidateCourses[i].rating - min_rating) / (max_rating - min_rating) * 1.0;
+                                var temp_diff = (candidateCourses[i].difficulty - min_diff) / (max_diff - min_diff) * 1.0;
+                                var temp_gpa = (candidateCourses[i].gpa - min_gpa) / (max_gpa - min_gpa) * 1.0;
+                                candidateCourses[i].score = temp_workload * 0.25 + temp_rating * 0.25 + temp_diff * 0.25 + temp_gpa * 0.25;
+                                
+                                checkFinished(survey.core, element);
+                                checkFinished(survey.electives, element);
+                            
+                            }
+                           
+                            //sort by score
+                            candidateCourses.sort(function(a, b) {
+                                return parseFloat(b.score) - parseFloat(a.score);
+                            });
+                            
+                             //finished updated and sorted candidateCourses from DB
+                            // console.log(candidateCourses);
+                            //show  candidate Courses
+                            // console.log(specification_data);
+                            //now show the ranking of all sepcification courses: core + electives
+                            // filterdata is all data
+                        
+                                                        
+                            
+                            if(specification === "CPR") {
+                                
+                                var core_first = specification_data["core"]["first"];
+                                var core_second = specification_data["core"]["second"];
+                                var elective_first = specification_data["electives"]["first"];
+                                var elective_second = specification_data["electives"]["second"];
+                                //check the candidate courses whether have cores and electives
+
+                                 res.render("degrees/degreetrack", {survey: survey, 
+                                                                core_first: query(filterdata, core_first), 
+                                                                core_second: query(filterdata, core_second),
+                                                                elective_first: query(filterdata, elective_first),
+                                                                elective_second:  query(filterdata, elective_second),
+                                                                candidateCourses:candidateCourses});
+                            }   else if(specification === "HCC") {
+                                 var core_first = specification_data["core"];
+                                var core_second = specification_data["core"];
+                                var elective_first = specification_data["electives"];
+                                var elective_second = specification_data["electives"];
+                                //check the candidate courses whether have cores and electives
+
+                                 res.render("degrees/degreetrack", {survey: survey, 
+                                                                core_first: query(filterdata, core_first), 
+                                                                core_second: query([], core_second),
+                                                                elective_first: query(filterdata, elective_first),
+                                                                elective_second:  query([], elective_second),
+                                                                candidateCourses:candidateCourses});
+                                
+                            }  else if(specification === "HCI" || specification === "HPC") {
+                                 var core_first = specification_data["core"];
+                                var core_second = specification_data["core"];
+                                var elective_first = specification_data["electives"]["first"];
+                                var elective_second = specification_data["electives"]["second"];
+                                //check the candidate courses whether have cores and electives
+
+                                 res.render("degrees/degreetrack", {survey: survey, 
+                                                                core_first: query(filterdata, core_first), 
+                                                                core_second: query([], core_second),
+                                                                elective_first: query(filterdata, elective_first),
+                                                                elective_second:  query(filterdata, elective_second),
+                                                                candidateCourses:candidateCourses});
+                                
+                            }   else  {
+                                
+                                // console.log("here");
+                                var core_first = specification_data["core"]["first"];
+                                var core_second = specification_data["core"]["second"];
+                                var elective_first = specification_data["electives"];
+                                var elective_second = specification_data["electives"];
+                                //check the candidate courses whether have cores and electives
+                                // console.log( elective_first);
+                                // console.log( query(filterdata, elective_first) );
+
+                                 res.render("degrees/degreetrack", {survey: survey, 
+                                                                core_first: query(filterdata, core_first), 
+                                                                core_second: query(filterdata, core_second),
+                                                                elective_first: query(filterdata, elective_first),
+                                                                elective_second:  query([], elective_second),
+                                                                candidateCourses:candidateCourses});
+                            }
+                                
+   
+
+                        }
+                        
+                            
+                    }
+                });
+                
+
+
+        }
+    });
+    
+    
+   
+
+    
 });
 
 
+function query(data, input) {
+    
+
+    var results = [];
+
+    for(var i = 0; i < data.length; i++) {
+        
+        if(Array.isArray(input)) {
+            
+            for(var j = 0; j < input.length; j++) {
+                
+                 var courseID = input[j].split(" ")[0];
+                 if(data[i].id === courseID) {
+                     results.push(data[i]);
+                 }
+                    
+            }
+            
+            
+        } else {
+            
+            var courseID = input.split(" ")[0];
+             if(data[i].id === courseID) {
+                 results.push(data[i]);
+             }
+            
+        }
+        
+        
+        
+    }
+    return results;
+
+    
+}
+
+function checkSpec(spec, candid) {
+    
+    var results = [];
+
+    for(var i = 0; i < spec.length; i++) {
+        for(var j = 0; j < candid.length; j++) {
+            
+            if(spec[i].id === candid[j].id) {
+                
+                results.push(spec[i].id);
+
+            }
+            
+        }
+    }
+    return results;
+    
+    
+    
+    
+}
+
+function checkFinished(target, element) {
+    
+     if(target != null) {
+            if(Array.isArray(target)) {
+                
+                for(var j = 0; j < target.length; j++) {
+                    if(element.id === target[j]) {
+                        element.finished = "YES";
+                    }
+                }
+            } else {
+                if(element.id === target) {
+                        element.finished = "YES";
+                    }
+            }
+                                
+    }
+    
+}
+
+// router.get("/degreetrack", function(req, res){
+//     res.render("degrees/degreetrack");
+// });
 
 module.exports = router;
