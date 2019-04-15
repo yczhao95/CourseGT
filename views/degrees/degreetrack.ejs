@@ -1,0 +1,320 @@
+<%include ../partials/header %>
+<div class="container">
+    <div class="row">
+        
+        <p><font size="5">Your Major: <%= survey.major %> </font></p>
+        <p><font size="5">Your Degree Process: <progress value="<%=survey.courseAlreadyTake/10.0*100 %>"  max="100">
+        </progress><%=survey.courseAlreadyTake/10.0*100 %>% </font></p>
+        
+        
+        <p><font size="5">Recommended Courses You may choose:</font></p>
+        <p><font size="5">Your selected workload:<%= survey.courseHours %>, Your selected difficulty:<%= survey.courseDiff %></font></p>
+        
+         <table data-toggle="table" id = "maintable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CourseID</th>
+                    <th>Course Name</th>
+                    <th>GPA</th>
+                    <th>Rating</th>
+                    <th>Work Load</th>
+                    <th>Difficulty</th>
+                    <th>A%</th>
+                    <th>B%</th>
+                    <th>C%</th>
+                    <th>D%</th>
+                    <th>F%</th>
+                    <th>W%</th>
+                    <th>RankingScore</th>
+                    <th>Finished</th>
+                </tr>
+            </thead>
+            <script>
+                $(document).ready(function () {
+                $('#maintable').DataTable(
+                        {
+                        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                        }
+                    );
+                // $('#maintbale').DataTable({
+                // "ordering": false // false to disable sorting (or any other option)
+                // });
+                //$('.dataTables_length').addClass('bs-select');
+                });
+            </script>
+            <tbody>
+                <%candidateCourses.forEach(function(course) {%>
+                    <tr>
+                        <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                        <td><%=course.name%></td>
+                        <td><%=course.gpa%></td>
+                        <td><%=course.rating%></td>
+                        <td><%=course.workload%></td>
+                        <td><%=course.difficulty%></td>
+                        <td><%=course.a%></td>
+                        <td><%=course.b%></td>
+                        <td><%=course.c%></td>
+                        <td><%=course.d%></td>
+                        <td><%=course.f%></td>
+                        <td><%=course.w%></td>
+                        <td><%=course.score%></td>
+                        <td><%=course.finished%></td>
+
+                    </tr>
+                <% })%>
+            </tbody>
+            </table>
+        <p><font size="5">Your Specification: <%=survey.specification %> </font></p>
+        <p><font size="5">Your Core Courses:  </font></p>
+        
+         <table data-toggle="table" id = "maintable0" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CourseID</th>
+                    <th>Course Name</th>
+                    <th>GPA</th>
+                    <th>Rating</th>
+                    <th>Work Load</th>
+                    <th>Difficulty</th>
+                    <th>A%</th>
+                    <th>B%</th>
+                    <th>C%</th>
+                    <th>D%</th>
+                    <th>F%</th>
+                    <th>W%</th>
+                    <th>Finished</th>
+                </tr>
+            </thead>
+            <script>
+                
+                $(document).ready(function () {
+                $('#maintable0').DataTable(
+                    
+                    {
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bInfo": false,
+                    "bAutoWidth": false ,
+                     "searching": false
+                    }
+                    );
+              
+                });
+                
+            </script>
+            <tbody>
+                <%core_first.forEach(function(course) {%>
+                    <tr>
+                        <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                        <td><%=course.name%></td>
+                        <td><%=course.gpa%></td>
+                        <td><%=course.rating%></td>
+                        <td><%=course.workload%></td>
+                        <td><%=course.difficulty%></td>
+                        <td><%=course.a%></td>
+                        <td><%=course.b%></td>
+                        <td><%=course.c%></td>
+                        <td><%=course.d%></td>
+                        <td><%=course.f%></td>
+                        <td><%=course.w%></td>
+                        <td><%=course.finished%></td>
+                    </tr>
+                <% })%>
+            </tbody>
+        </table>
+        
+                 <table data-toggle="table" id = "maintable1" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CourseID</th>
+                    <th>Course Name</th>
+                    <th>GPA</th>
+                    <th>Rating</th>
+                    <th>Work Load</th>
+                    <th>Difficulty</th>
+                    <th>A%</th>
+                    <th>B%</th>
+                    <th>C%</th>
+                    <th>D%</th>
+                    <th>F%</th>
+                    <th>W%</th>
+                    <th>Finished</th>
+                </tr>
+            </thead>
+            <script>
+                
+                $(document).ready(function () {
+                $('#maintable1').DataTable(
+                    
+                    {
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bInfo": false,
+                    "bAutoWidth": false ,
+                     "searching": false
+                    }
+                    );
+              
+                });
+                
+                    
+            </script>
+            <tbody>
+                <%core_second.forEach(function(course) {%>
+                    <tr>
+                        <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                        <td><%=course.name%></td>
+                        <td><%=course.gpa%></td>
+                        <td><%=course.rating%></td>
+                        <td><%=course.workload%></td>
+                        <td><%=course.difficulty%></td>
+                        <td><%=course.a%></td>
+                        <td><%=course.b%></td>
+                        <td><%=course.c%></td>
+                        <td><%=course.d%></td>
+                        <td><%=course.f%></td>
+                        <td><%=course.w%></td>
+                        <td><%=course.finished%></td>
+
+                    </tr>
+                <% })%>
+            </tbody>
+        </table>
+        
+        <p><font size="5">Electives Courses:</font></p>
+        <table data-toggle="table" id = "maintable2" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CourseID</th>
+                    <th>Course Name</th>
+                    <th>GPA</th>
+                    <th>Rating</th>
+                    <th>Work Load</th>
+                    <th>Difficulty</th>
+                    <th>A%</th>
+                    <th>B%</th>
+                    <th>C%</th>
+                    <th>D%</th>
+                    <th>F%</th>
+                    <th>W%</th>
+                    <th>Finished</th>
+
+                </tr>
+            </thead>
+            <script>
+                
+                $(document).ready(function () {
+                $('#maintable2').DataTable(
+                    
+                    {
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bInfo": false,
+                    "bAutoWidth": false ,
+                     "searching": false
+                    }
+                    );
+              
+                });
+                
+                    
+            </script>
+            <tbody>
+                <%elective_first.forEach(function(course) {%>
+                    <tr>
+                        <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                        <td><%=course.name%></td>
+                        <td><%=course.gpa%></td>
+                        <td><%=course.rating%></td>
+                        <td><%=course.workload%></td>
+                        <td><%=course.difficulty%></td>
+                        <td><%=course.a%></td>
+                        <td><%=course.b%></td>
+                        <td><%=course.c%></td>
+                        <td><%=course.d%></td>
+                        <td><%=course.f%></td>
+                        <td><%=course.w%></td>
+                        <td><%=course.finished%></td>
+
+                    </tr>
+                <% })%>
+            </tbody>
+        </table>
+        
+        <!--########-->
+        <table data-toggle="table" id = "maintable3" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CourseID</th>
+                    <th>Course Name</th>
+                    <th>GPA</th>
+                    <th>Rating</th>
+                    <th>Work Load</th>
+                    <th>Difficulty</th>
+                    <th>A%</th>
+                    <th>B%</th>
+                    <th>C%</th>
+                    <th>D%</th>
+                    <th>F%</th>
+                    <th>W%</th>
+                    <th>Finished</th>
+
+                </tr>
+            </thead>
+            <script>
+                
+                $(document).ready(function () {
+                $('#maintable3').DataTable(
+                    
+                    {
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bInfo": false,
+                    "bAutoWidth": false ,
+                     "searching": false
+                    }
+                    );
+              
+                });
+                
+                    
+            </script>
+            <tbody>
+                <%elective_second.forEach(function(course) {%>
+                    <tr>
+                        <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
+                        <td><%=course.name%></td>
+                        <td><%=course.gpa%></td>
+                        <td><%=course.rating%></td>
+                        <td><%=course.workload%></td>
+                        <td><%=course.difficulty%></td>
+                        <td><%=course.a%></td>
+                        <td><%=course.b%></td>
+                        <td><%=course.c%></td>
+                        <td><%=course.d%></td>
+                        <td><%=course.f%></td>
+                        <td><%=course.w%></td>
+                        <td><%=course.finished%></td>
+
+                    </tr>
+                <% })%>
+            </tbody>
+        </table>
+        
+
+        
+        
+        
+
+        
+       
+        
+       
+
+    </div>
+</div>
+<%include ../partials/footer %>

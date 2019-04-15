@@ -29,11 +29,17 @@
         </thead>
         <script>
             $(document).ready(function () {
-            $('#maintable').DataTable();
-            $('#maintbale').DataTable({
-            "ordering": false // false to disable sorting (or any other option)
-            });
-            $('.dataTables_length').addClass('bs-select');
+            $('#maintable').DataTable(
+                    {
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                    }
+                );
+            // $('#maintbale').DataTable({
+            // "ordering": false // false to disable sorting (or any other option)
+            // });
+            //$('.dataTables_length').addClass('bs-select');
+            
+            
             });
         </script>
         <tbody>
@@ -42,9 +48,12 @@
                     <td><a href="/courses/<%= course._id %>"><%= course.id%></a></td>
                     <td><%=course.name%></td>
                     <td><%=course.gpa%></td>
-                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.rating%> <%}%></td>
-                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.workload%> <%}%></td>
-                    <td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.difficulty%> <%}%></td>
+                    <!--<td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.rating%> <%}%></td>-->
+                    <!--<td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.workload%> <%}%></td>-->
+                    <!--<td><% if (course.comments.length == 0) {%> N/A <%} else {%> <%=course.difficulty%> <%}%></td>-->
+                    <td><%=course.rating%></td>
+                    <td><%=course.workload%></td>
+                    <td><%=course.difficulty%></td>
                     <td><%=course.a%></td>
                     <td><%=course.b%></td>
                     <td><%=course.c%></td>

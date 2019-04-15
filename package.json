@@ -12,6 +12,7 @@
     "alert-node": "^1.2.3",
     "body-parser": "^1.14.1",
     "connect-flash": "^0.1.1",
+    "defiant.js": "^2.2.4",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "express-session": "^1.11.3",
