@@ -170,7 +170,7 @@ router.post("/myprofile", function(req, res){
                                                                 candidateCourses:candidateCourses});
                                 
 
-                            }   else if(specification === "HCC") {
+                            }   else if(specification === "HCC" || specification === "HPC") {
                                  var core_first = specification_data["core"];
                                 var core_second = specification_data["core"];
                                 var elective_first = specification_data["electives"];
@@ -184,7 +184,7 @@ router.post("/myprofile", function(req, res){
                                                                 elective_second:  query([], elective_second),
                                                                 candidateCourses:candidateCourses});
                                 
-                            }  else if(specification === "HCI" || specification === "HPC") {
+                            }  else if(specification === "HCI") {
                                  var core_first = specification_data["core"];
                                 var core_second = specification_data["core"];
                                 var elective_first = specification_data["electives"]["first"];
