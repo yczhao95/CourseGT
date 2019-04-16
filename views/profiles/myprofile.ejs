@@ -82,33 +82,104 @@
           output3.innerHTML = this.value;
         }
         </script>
+        
         <p><font size="4">Factor importance level: 0-5</font></p>
-        <p><font size="4">GPA-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="gpaWeight">
-          <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="gpaWeight">
-       </div>
-       <p><font size="4">CourseRating-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="ratingWeight">
-          <input name="ratingWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="ratingWeight">
-       </div>
-       <p><font size="4">Workload-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="workloadWeight">
-          <input name="workloadWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="workloadWeight">
-       </div>
-       <p><font size="4">Difficulty-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="difficultyWeight">
-          <input name="difficultyWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="difficultyWeight">
-       </div>
-       <script type="text/javascript" src="javascripts/weight.js"></script>
+       <!-- <p><font size="4">GPA-importance:</font></p>-->
+       <!-- <div class="input-group">-->
+       <!--   <input type="button" value="-" class="button-minus" data-field="gpaWeight">-->
+       <!--   <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">-->
+       <!--   <input type="button" value="+" class="button-plus" data-field="gpaWeight">-->
+       <!--</div>-->
        
+       
+       
+       <p><font size="4">GPA-importance:</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "gpaWeight" min="1" max="5" value="1" class="slider" id="myRange4" data-slider-tooltip="hide">
+          <p>GPA importance: <span id="demo4"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange4");
+        var output4 = document.getElementById("demo4");
+        output4.innerHTML = slider.value;
+        slider.oninput = function() {
+          output4.innerHTML = this.value;
+        }
+        </script>
+       
+       
+       
+       <!--<p><font size="4">CourseRating-importance:</font></p>-->
+       <!-- <div class="input-group">-->
+       <!--   <input type="button" value="-" class="button-minus" data-field="ratingWeight">-->
+       <!--   <input name="ratingWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">-->
+       <!--   <input type="button" value="+" class="button-plus" data-field="ratingWeight">-->
+       <!--</div>-->
+       
+       
+        <p><font size="4">CourseRating-importance:</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "ratingWeight" min="1" max="5" value="1" class="slider" id="myRange5" data-slider-tooltip="hide">
+          <p>CourseRating importance: <span id="demo5"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange5");
+        var output5 = document.getElementById("demo5");
+        output5.innerHTML = slider.value;
+        slider.oninput = function() {
+          output5.innerHTML = this.value;
+        }
+        </script>
+       
+  
+       
+       <!--<p><font size="4">Workload-importance:</font></p>-->
+       <!-- <div class="input-group">-->
+       <!--   <input type="button" value="-" class="button-minus" data-field="workloadWeight">-->
+       <!--   <input name="workloadWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">-->
+       <!--   <input type="button" value="+" class="button-plus" data-field="workloadWeight">-->
+       <!--</div>-->
+       
+       
+        <p><font size="4">Workload-importance:</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "workloadWeight" min="1" max="5" value="1" class="slider" id="myRange6" data-slider-tooltip="hide">
+          <p>Workload importance: <span id="demo6"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange6");
+        var output6 = document.getElementById("demo6");
+        output6.innerHTML = slider.value;
+        slider.oninput = function() {
+          output6.innerHTML = this.value;
+        }
+        </script>
+       
+       
+       
+       
+       
+       <!--<p><font size="4">Difficulty-importance:</font></p>-->
+       <!-- <div class="input-group">-->
+       <!--   <input type="button" value="-" class="button-minus" data-field="difficultyWeight">-->
+       <!--   <input name="difficultyWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">-->
+       <!--   <input type="button" value="+" class="button-plus" data-field="difficultyWeight">-->
+       <!--</div>-->
+       <!--<script type="text/javascript" src="javascripts/weight.js"></script>-->
+       
+       <p><font size="4">Difficulty-importance:</font></p>
+        <div class="slidecontainer">
+          <input type="range" name = "difficultyWeight" min="1" max="5" value="1" class="slider" id="myRange7" data-slider-tooltip="hide">
+          <p>Difficulty importance: <span id="demo7"></span></p>
+        </div>
+        <script>
+        var slider = document.getElementById("myRange7");
+        var output7 = document.getElementById("demo7");
+        output7.innerHTML = slider.value;
+        slider.oninput = function() {
+          output7.innerHTML = this.value;
+        }
+        </script>
 
         
        
