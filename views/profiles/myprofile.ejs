@@ -6,43 +6,45 @@
   <div class="col-md-8">
   <div class="thumbnail">
     <form action="/myprofile" method = "POST">
-        <p><font size="4">What is Your Major?</font></p>
+        <p><font size="4"><strong>What is Your Major?</strong></font></p>
         <legend>Please select one of the following</legend>
-         <input id="checkbox-1" type="checkbox" name="major" value="MSCS" checked="checked"/><label for="checkbox-1">MSCS</label>
-        <p></p>
-        <p><font size="4">What is your specification?</font></p>
+         <input id="checkbox-1" type="checkbox" name="major" value="MSCS" checked="checked"/><label for="checkbox-1"><small>MSCS</small></label>
+        <br/>
+
+        <p><font size="4"><strong>What is your specification?</strong></font></p>
         <legend>Please select one of the following</legend>
-        
-        <select name="specification" id="mySelect" onchange="myFunction()">
-        <option value=""></option>
-        <option value="CPR">Computational Perception and Robotics</option>
-        <option value="CG">Computer Graphics</option>
-        <option value="CS">Computing Systems</option>
-        <option value="HCC">Human Centered Computing</option>
-        <option value="HPC">High Performance Computing</option>
-        <option value="HCI">Human-Computer Interaction</option>
-        <option value="II">Interactive Intelligence</option>
-        <option value="ML">Machine Learning</option>
-        <option value="MS">Modeling and Simulations</option>
-        <option value="SC-1">Scientific Computing </option>
-        <option value="SC-2"> Social Computing </option>
-        <option value="VA">Visual Analytics</option>
-        </select>
-        
-        <p></p>
-        
-        <p><font size="4">Which course have your already taken?</font></p>
+        <div class="select_join">
+          <select name="specification" id="mySelect" onchange="myFunction()">
+          <option value=""></option>
+          <option value="CPR">Computational Perception and Robotics</option>
+          <option value="CG">Computer Graphics</option>
+          <option value="CS">Computing Systems</option>
+          <option value="HCC">Human Centered Computing</option>
+          <option value="HPC">High Performance Computing</option>
+          <option value="HCI">Human-Computer Interaction</option>
+          <option value="II">Interactive Intelligence</option>
+          <option value="ML">Machine Learning</option>
+          <option value="MS">Modeling and Simulations</option>
+          <option value="SC-1">Scientific Computing </option>
+          <option value="SC-2"> Social Computing </option>
+          <option value="VA">Visual Analytics</option>
+          </select>
+        </div>
+        <br/>
+        <br/>
+        <p><font size="4"><strong>Which course have your already taken?</strong></font></p>
         <legend>Specification: <span class="rp"></span></legend>
         
         <div class="container">
             <header class="test">
             </header>
         </div>
-        
-        <p><font size="4">How many courses do you already take?</font></p>
-          <div class="slidecontainer">
+        <br/>
+
+        <p><font size="4"><strong>How many courses do you already take?</strong></font></p>
+        <div class="slidecontainer">
           <input type="range" name = "courseAlreadyTake" min="0" max="10" value="0" class="slider" id="myRange0">
-          <p>The number of Courses: <span id="demo0"></span></p>
+          <p style="font-size:15px;">The number of Courses: <span id="demo0"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange0", {
@@ -54,11 +56,12 @@
           output0.innerHTML = this.value;
         }
         </script>
-        
-         <p><font size="4">How many average hours do you plan to spend on a course per week?</font></p>
+        <br/>
+
+        <p><font size="4"><strong>How many average hours do you plan to spend on a course per week?</strong></font></p>
         <div class="slidecontainer">
           <input type="range" name = "courseHours" min="5" max="50" value="5" class="slider" id="myRange2">
-          <p>Hours: <span id="demo2"></span></p>
+          <p style="font-size:15px;">Hours: <span id="demo2"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange2");
@@ -68,11 +71,12 @@
           output2.innerHTML = this.value;
         }
         </script>
-        
-        <p><font size="4">What's the average difficulty of courses that you prefer?</font></p>
+        <br/>
+
+        <p><font size="4"><strong>What's the average difficulty of courses that you prefer?</strong></font></p>
         <div class="slidecontainer">
           <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3" data-slider-tooltip="hide">
-          <p>Difficulty level: <span id="demo3"></span></p>
+          <p style="font-size:15px;">Difficulty level: <span id="demo3"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange3");
@@ -82,13 +86,16 @@
           output3.innerHTML = this.value;
         }
         </script>
-        <p><font size="4">Factor importance level: 0-5</font></p>
+        <br/>
+        <p><font size="3">Factor importance level: 0-5</font></p>
         <p><font size="4">GPA-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="gpaWeight">
           <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">
           <input type="button" value="+" class="button-plus" data-field="gpaWeight">
        </div>
+       
+       
        <p><font size="4">CourseRating-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="ratingWeight">

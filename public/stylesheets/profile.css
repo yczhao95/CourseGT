@@ -5,6 +5,8 @@ body{
 legend{
  font-size: 13px;
 }
+.select_join{ font-size:13px; }
+
 .container {
   display: block;
   position: relative;
