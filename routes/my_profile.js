@@ -154,7 +154,7 @@ router.post("/myprofile", function(req, res){
                             //now show the ranking of all sepcification courses: core + electives
                             // filterdata is all data
                             
-                            if(specification === "CPR") {
+                            if(specification === "CPR" || specification === "II") {
                                 
                                 var core_first = specification_data["core"]["first"];
                                 var core_second = specification_data["core"]["second"];
