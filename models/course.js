@@ -40,7 +40,8 @@ var courseSchema = new mongoose.Schema({
     score:      Number,
     files: [{
         file_name: String
-    }]
+    }],
+    finished: String
 });
 
 module.exports = mongoose.model("Course", courseSchema);
