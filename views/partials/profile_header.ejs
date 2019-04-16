@@ -38,9 +38,9 @@
                                 <li><a href="/login">Log in</a></li>
                                 <li><a href="/register">Sign up</a></li>
                             <% } else {%>
-                            <%    if(currentUser.specification) { %>
-                                    <li><a href="/degreetrack" style="color: #000080">My Recommendation</a></li> 
-                            <%   } %>
+                              <%   if(currentUser.specification) { %>
+                                     <li><a href="/degreetrack" style="color: #000080">My Recommendation</a></li>
+                              <%   }%>
                                     <li><a href="/myprofile" style="color: #000080">Degree Track</a></li>
                                     <li><a href="#">Signed In As <%= currentUser.username%></a></li>
                                     <li><a href="/logout">Log out</a></li>
