@@ -1,13 +1,17 @@
 <%include ../partials/profile_header %>
             
 <div class="container">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+  <div class="thumbnail">
     <form action="/myprofile" method = "POST">
-        <p><font size="5">What is Your Major?</font></p>
-        <legend><small>Please select one of the following</small></legend>
+        <p><font size="4">What is Your Major?</font></p>
+        <legend>Please select one of the following</legend>
          <input id="checkbox-1" type="checkbox" name="major" value="MSCS" checked="checked"/><label for="checkbox-1">MSCS</label>
         <p></p>
-        <p><font size="5">What is your specification?</font></p>
-        <legend><small>Please select one of the following</small></legend>
+        <p><font size="4">What is your specification?</font></p>
+        <legend>Please select one of the following</legend>
         
         <select name="specification" id="mySelect" onchange="myFunction()">
         <option value=""></option>
@@ -27,15 +31,15 @@
         
         <p></p>
         
-        <p><font size="5">Which course have your already taken?</font></p>
-        <legend><small>Specification: <span class="rp"></span></small></legend>
+        <p><font size="4">Which course have your already taken?</font></p>
+        <legend>Specification: <span class="rp"></span></legend>
         
         <div class="container">
             <header class="test">
             </header>
         </div>
         
-        <p><font size="5">How many courses do you already take?</font></p>
+        <p><font size="4">How many courses do you already take?</font></p>
           <div class="slidecontainer">
           <input type="range" name = "courseAlreadyTake" min="0" max="10" value="0" class="slider" id="myRange0">
           <p>The number of Courses: <span id="demo0"></span></p>
@@ -51,7 +55,7 @@
         }
         </script>
         
-         <p><font size="5">How many average hours do you plan to spend on a course per week?</font></p>
+         <p><font size="4">How many average hours do you plan to spend on a course per week?</font></p>
         <div class="slidecontainer">
           <input type="range" name = "courseHours" min="5" max="50" value="5" class="slider" id="myRange2">
           <p>Hours: <span id="demo2"></span></p>
@@ -65,7 +69,7 @@
         }
         </script>
         
-        <p><font size="5">What's the average difficulty of courses that you prefer?</font></p>
+        <p><font size="4">What's the average difficulty of courses that you prefer?</font></p>
         <div class="slidecontainer">
           <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3" data-slider-tooltip="hide">
           <p>Difficulty level: <span id="demo3"></span></p>
@@ -78,26 +82,26 @@
           output3.innerHTML = this.value;
         }
         </script>
-        <p><font size="5">Factor importance level: 0-5</font></p>
-        <p><font size="5">GPA-importance:</font></p>
+        <p><font size="4">Factor importance level: 0-5</font></p>
+        <p><font size="4">GPA-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="gpaWeight">
           <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">
           <input type="button" value="+" class="button-plus" data-field="gpaWeight">
        </div>
-       <p><font size="5">CourseRating-importance:</font></p>
+       <p><font size="4">CourseRating-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="ratingWeight">
           <input name="ratingWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
           <input type="button" value="+" class="button-plus" data-field="ratingWeight">
        </div>
-       <p><font size="5">Workload-importance:</font></p>
+       <p><font size="4">Workload-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="workloadWeight">
           <input name="workloadWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
           <input type="button" value="+" class="button-plus" data-field="workloadWeight">
        </div>
-       <p><font size="5">Difficulty-importance:</font></p>
+       <p><font size="4">Difficulty-importance:</font></p>
         <div class="input-group">
           <input type="button" value="-" class="button-minus" data-field="difficultyWeight">
           <input name="difficultyWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
@@ -111,6 +115,8 @@
 
         <button class="btn btn-primary"  type="submit">Submit</button>
     </form>
+  </div>
+  </div>
 </div>
 
 

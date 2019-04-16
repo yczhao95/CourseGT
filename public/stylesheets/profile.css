@@ -2,6 +2,9 @@
 body{
    font-family: 'Titillium Web', sans-serif;
 }
+legend{
+ font-size: 13px;
+}
 .container {
   display: block;
   position: relative;
