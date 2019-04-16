@@ -11,14 +11,14 @@ function changetoHTML(data, part1, part2, part3) {
         data[part1][part2][part3].forEach(function(element) {
              var courseID = element.split(" ")[0];
              var courseName = element;
-             result = '<input id="checkbox-' +num_checkbox +  '" type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="checkbox-' + num_checkbox  +'">' + courseName + '</label>' + result;
+             result = '<input id="' +num_checkbox +  '" type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="' + num_checkbox  +'">' + courseName + '</label>' + result;
              num_checkbox = num_checkbox + 1;
         });
     } else {
          data[part1][part2].forEach(function(element) {
              var courseID = element.split(" ")[0];
              var courseName = element;
-             result = '<input id="checkbox-'+num_checkbox + '"type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="checkbox-' + num_checkbox + '">' + courseName + '</label>' + result;
+             result = '<input id="'+num_checkbox + '"type="checkbox" name="' + part2  + '"[]" value="' +  courseID + '"/>' + '<label for="' + num_checkbox + '">' + courseName + '</label>' + result;
             num_checkbox = num_checkbox + 1;
 
         });

@@ -153,6 +153,16 @@ router.post("/myprofile", function(req, res){
                             // console.log(specification_data);
                             //now show the ranking of all sepcification courses: core + electives
                             // filterdata is all data
+                            // console.log("core_first");
+                            // console.log(core_first);
+                            // console.log("core_second");
+                            // console.log(core_second);
+                            // console.log("elective_first");
+                            // console.log(elective_first);
+                            // console.log("elective_second");
+                            // console.log(elective_second);
+                            // console.log("candidateCourses");
+                            // console.log(candidateCourses);
                             
                             if(specification === "CPR" || specification === "II") {
                                 
@@ -162,13 +172,30 @@ router.post("/myprofile", function(req, res){
                                 var elective_second = specification_data["electives"]["second"];
                                 //check the candidate courses whether have cores and electives
 
-                                 res.render("degrees/degreetrack", {survey: survey, 
-                                                                core_first: query(filterdata, core_first), 
-                                                                core_second: query(filterdata, core_second),
-                                                                elective_first: query(filterdata, elective_first),
-                                                                elective_second:  query(filterdata, elective_second),
-                                                                candidateCourses:candidateCourses});
-                                
+                                //  res.render("degrees/degreetrack", {survey: survey, 
+                                //                                 core_first: query(filterdata, core_first), 
+                                //                                 core_second: query(filterdata, core_second),
+                                //                                 elective_first: query(filterdata, elective_first),
+                                //                                 elective_second:  query(filterdata, elective_second),
+                                //                                 candidateCourses:candidateCourses});
+                                 //create a new user and save to database
+                                 
+                                 User.findById(req.user._id, function(err, user){
+                                     if(err){
+                                         console.log("user not found"+err);
+                                     } else {
+                                         user.specification = specification;
+                                         user.survey = survey;
+                                         user.candidateCourses = candidateCourses;
+                                         user.core_first = query(filterdata, core_first);
+                                         user.core_second =  query(filterdata, core_second);
+                                         user.elective_first = query(filterdata, elective_first);
+                                         user.elective_second = query(filterdata, elective_second);
+                                         user.save();
+                                     }
+                                 })
+                               
+                                  
 
                             }   else if(specification === "HCC" || specification === "HPC") {
                                  var core_first = specification_data["core"];
@@ -177,12 +204,27 @@ router.post("/myprofile", function(req, res){
                                 var elective_second = specification_data["electives"];
                                 //check the candidate courses whether have cores and electives
 
-                                 res.render("degrees/degreetrack", {survey: survey, 
-                                                                core_first: query(filterdata, core_first), 
-                                                                core_second: query([], core_second),
-                                                                elective_first: query(filterdata, elective_first),
-                                                                elective_second:  query([], elective_second),
-                                                                candidateCourses:candidateCourses});
+                                //  res.render("degrees/degreetrack", {survey: survey, 
+                                //                                 core_first: query(filterdata, core_first), 
+                                //                                 core_second: query([], core_second),
+                                //                                 elective_first: query(filterdata, elective_first),
+                                //                                 elective_second:  query([], elective_second),
+                                //                                 candidateCourses:candidateCourses});
+                                                                
+                                User.findById(req.user._id, function(err, user){
+                                     if(err){
+                                         console.log("user not found"+err);
+                                     } else {
+                                         user.specification = specification;
+                                         user.survey = survey;
+                                         user.candidateCourses = candidateCourses;
+                                         user.core_first = query(filterdata, core_first);
+                                         user.core_second =  query([], core_second);
+                                         user.elective_first = query(filterdata, elective_first);
+                                         user.elective_second = query([], elective_second);
+                                         user.save();
+                                     }
+                                 })
                                 
                             }  else if(specification === "HCI") {
                                  var core_first = specification_data["core"];
@@ -191,21 +233,52 @@ router.post("/myprofile", function(req, res){
                                 var elective_second = specification_data["electives"]["second"];
                                 //check the candidate courses whether have cores and electives
 
-                                 res.render("degrees/degreetrack", {survey: survey, 
-                                                                core_first: query(filterdata, core_first), 
-                                                                core_second: query([], core_second),
-                                                                elective_first: query(filterdata, elective_first),
-                                                                elective_second:  query(filterdata, elective_second),
-                                                                candidateCourses:candidateCourses});
+                                //  res.render("degrees/degreetrack", {survey: survey, 
+                                //                                 core_first: query(filterdata, core_first), 
+                                //                                 core_second: query([], core_second),
+                                //                                 elective_first: query(filterdata, elective_first),
+                                //                                 elective_second:  query(filterdata, elective_second),
+                                //                                 candidateCourses:candidateCourses});
+                                                                
+                                User.findById(req.user._id, function(err, user){
+                                     if(err){
+                                         console.log("user not found"+err);
+                                     } else {
+                                         user.specification = specification;
+                                         user.survey = survey;
+                                         user.candidateCourses = candidateCourses;
+                                         user.core_first = query(filterdata, core_first);
+                                         user.core_second =  query([], core_second);
+                                         user.elective_first = query(filterdata, elective_first);
+                                         user.elective_second = query(filterdata, elective_second);
+                                         user.save();
+                                     }
+                                 })
                                 
                             }  else if(specification == null || specification == "") {
                                 console.log("here");
-                                res.render("degrees/degreetrack", {survey: survey, 
-                                                                core_first: query([], []), 
-                                                                core_second: query([], []),
-                                                                elective_first: query([], []),
-                                                                elective_second:  query([], []),
-                                                                candidateCourses:candidateCourses});
+                                // res.render("degrees/degreetrack", {survey: survey, 
+                                //                                 core_first: query([], []), 
+                                //                                 core_second: query([], []),
+                                //                                 elective_first: query([], []),
+                                //                                 elective_second:  query([], []),
+                                //                                 candidateCourses:candidateCourses});
+                                                                
+                                User.findById(req.user._id, function(err, user){
+                                     if(err){
+                                         console.log("user not found"+err);
+                                     } else {
+                                         user.specification = specification;
+                                         user.survey = survey;
+                                         user.candidateCourses = candidateCourses;
+                                         user.core_first = query([], []);
+                                         user.core_second =  query([], []);
+                                         user.elective_first = query([], []);
+                                         user.elective_second = query([], []);
+                                         user.save();
+                                     }
+                                 })
+                                
                             } else  {
                                 // console.log("here");
                                 var core_first = specification_data["core"]["first"];
@@ -216,20 +289,40 @@ router.post("/myprofile", function(req, res){
                                 // console.log( elective_first);
                                 // console.log( query(filterdata, elective_first) );
 
-                                 res.render("degrees/degreetrack", {survey: survey, 
-                                                                core_first: query(filterdata, core_first), 
-                                                                core_second: query(filterdata, core_second),
-                                                                elective_first: query(filterdata, elective_first),
-                                                                elective_second:  query([], elective_second),
-                                                                candidateCourses:candidateCourses});
+                                //  res.render("degrees/degreetrack", {survey: survey, 
+                                //                                 core_first: query(filterdata, core_first), 
+                                //                                 core_second: query(filterdata, core_second),
+                                //                                 elective_first: query(filterdata, elective_first),
+                                //                                 elective_second:  query([], elective_second),
+                                //                                 candidateCourses:candidateCourses});
+                                                                
+                                User.findById(req.user._id, function(err, user){
+                                     if(err){
+                                         console.log("user not found"+err);
+                                     } else {
+                                         user.specification = specification;
+                                         user.survey = survey;
+                                         user.candidateCourses = candidateCourses;
+                                         user.core_first = query(filterdata, core_first);
+                                         user.core_second =  query(filterdata, core_second);
+                                         user.elective_first = query(filterdata, elective_first);
+                                         user.elective_second = query([], elective_second);
+                                         user.save();
+                                     }
+                                 })
                                         
                             }
+                            
+                             res.redirect("/degreetrack");
                                 
                         }
                         
                             
                     }
                 });
+                
+                
+                
                 
 
 

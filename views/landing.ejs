@@ -22,14 +22,14 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <% if(!currentUser){ %>
-                            <li><a style="color: #000080" href="/myprofile">Degree Track</a></li>
-                            <li><a href="/login">Log in</a></li>
-                            <li><a href="/register">Sign up</a></li>
-                        <% } else {%>
-                                <li><a style="color: #000080" href="/myprofile">Degree Track</a></li>
-                                <li><a href="#">Signed In As <%= currentUser.username%></a></li>
-                                <li><a href="/logout">Log out</a></li>
+                       <% if(!currentUser){ %>
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Sign up</a></li>
+                            <% } else {%>
+                                    <li><a href="/degreetrack" style="color: #000080">My Recommendation</a></li>
+                                    <li><a href="/myprofile" style="color: #000080">Degree Track</a></li>
+                                    <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                    <li><a href="/logout">Log out</a></li>
                         <% } %>
                     </ul>
                 </div>
