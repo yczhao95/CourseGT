@@ -37,7 +37,10 @@ var courseSchema = new mongoose.Schema({
     workload:   Number,
     difficulty: Number,
     rating:     Number,
-    score: Number
+    score:      Number,
+    files: [{
+        file_name: String
+    }]
 });
 
 module.exports = mongoose.model("Course", courseSchema);

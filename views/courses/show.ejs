@@ -10,29 +10,49 @@
             <h2><a><%= course.id%> <%=course.name%></a></h2>
             <p>Average GPA: <%=course.gpa%></p>
             <p><%=course.description%></p>
+            <hr>
             <% if (course.comments.length === 0) { %>
-            <h5>
-                <em>No reviews yet.</em>
-            </h5>
+                <h5>
+                    <em>No reviews yet.</em>
+                </h5>
             <% } else { %>
-            <p>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star <% if (course.rating > 1.5) { %> checked <% } %>" style = "color: orange"></span>
-                <span class="fa fa-star <% if (course.rating > 2.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (course.rating > 3.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (course.rating > 4.5) { %> checked <% } %>"></span>
-                <em>(total reviews: <%= course.comments.length %>)</em>
-            </p>
-            <p>
-                Average course rating(Scale 1 to 5): <strong><%= course.rating %></strong>
-            </p>
-            <p>
-                Average Difficulty (Scale 1 to 5): <strong><%= course.difficulty %></strong>
-            </p>
-            <p>
-                Average Work Load (Hours per week): <strong><%= course.workload %></strong>
-            </p>
+                <p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star <% if (course.rating > 1.5) { %> checked <% } %>" style = "color: orange"></span>
+                    <span class="fa fa-star <% if (course.rating > 2.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (course.rating > 3.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (course.rating > 4.5) { %> checked <% } %>"></span>
+                    <em>(total reviews: <%= course.comments.length %>)</em>
+                </p>
+                <p>
+                    Average course rating(Scale 1 to 5): <strong><%= course.rating %></strong>
+                </p>
+                <p>
+                    Average Difficulty (Scale 1 to 5): <strong><%= course.difficulty %></strong>
+                </p>
+                <p>
+                    Average Work Load (Hours per week): <strong><%= course.workload %></strong>
+                </p>
             <%}%>
+            <div>
+                <hr>
+                <p>
+                Related Materials:
+                </p>
+                <%course.files.forEach(function(file) {%>
+                    <p><a href="/courses/download/<%= file.file_name %>"><%=file.file_name%></a></p>
+                <%})%>
+                <hr>
+                <p>Share new course materials</p>
+                <form ref='uploadForm' 
+                    id='uploadForm' 
+                    action="/courses/<%= course._id %>/upload"
+                    method='POST' 
+                    encType="multipart/form-data">
+                    <span> <input type="file" name="sampleFile"> </span>
+                    <span class="pull-right"> <button class="btn btn-success">Upload</button></span> 
+                </form> 
+            </div>
         </div>
         
         <div class="col-md-9">
