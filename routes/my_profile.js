@@ -101,10 +101,8 @@ router.post("/myprofile", function(req, res){
                             
                         }
                         
-                        // console.log("gpa:");
-                        // console.log(min_gpa);
-                        //compute the score 
-                        
+                       
+
                         if(candidateCourses == null) {
                             
                             console.error("No candidateCourses");
@@ -112,14 +110,32 @@ router.post("/myprofile", function(req, res){
                         } else {
                             
                             
+                            console.log(parseFloat(survey.gpaWeight));
+                            console.log(parseFloat(survey.ratingWeight));
+                            console.log(parseFloat(survey.workloadWeight));
+                            console.log(parseFloat(survey.difficultyWeight));
+
+                            
+                            
                             for(var i = 0; i < candidateCourses.length; i++) {
                                 
+                                
+                                
+                                var factorSum = parseFloat(survey.gpaWeight)
+                                                +parseFloat(survey.ratingWeight)
+                                                +parseFloat(survey.workloadWeight)
+                                                +parseFloat(survey.difficultyWeight);
+                                                
                                 var element = candidateCourses[i];
-                                var temp_workload = (candidateCourses[i].workload - min_workload) / (max_workload - min_workload) * 1.0;
+                                var temp_workload = 1 - (candidateCourses[i].workload - min_workload) / (max_workload - min_workload) * 1.0;
                                 var temp_rating = (candidateCourses[i].rating - min_rating) / (max_rating - min_rating) * 1.0;
-                                var temp_diff = (candidateCourses[i].difficulty - min_diff) / (max_diff - min_diff) * 1.0;
+                                var temp_diff = 1 - (candidateCourses[i].difficulty - min_diff) / (max_diff - min_diff) * 1.0;
                                 var temp_gpa = (candidateCourses[i].gpa - min_gpa) / (max_gpa - min_gpa) * 1.0;
-                                candidateCourses[i].score = temp_workload * 0.25 + temp_rating * 0.25 + temp_diff * 0.25 + temp_gpa * 0.25;
+                                candidateCourses[i].score = temp_workload * parseFloat(survey.workloadWeight)/factorSum
+                                + temp_rating * parseFloat(survey.ratingWeight)/factorSum 
+                                + temp_diff * parseFloat(survey.difficultyWeight)/factorSum 
+                                + temp_gpa * parseFloat(survey.gpaWeight)/factorSum  ;
+                                
                                 
                                 checkFinished(survey.core, element);
                                 checkFinished(survey.electives, element);
@@ -137,10 +153,8 @@ router.post("/myprofile", function(req, res){
                             // console.log(specification_data);
                             //now show the ranking of all sepcification courses: core + electives
                             // filterdata is all data
-                        
-                                                        
                             
-                            if(specification === "CPR") {
+                            if(specification === "CPR" || specification === "II") {
                                 
                                 var core_first = specification_data["core"]["first"];
                                 var core_second = specification_data["core"]["second"];
@@ -154,7 +168,9 @@ router.post("/myprofile", function(req, res){
                                                                 elective_first: query(filterdata, elective_first),
                                                                 elective_second:  query(filterdata, elective_second),
                                                                 candidateCourses:candidateCourses});
-                            }   else if(specification === "HCC") {
+                                
+
+                            }   else if(specification === "HCC" || specification === "HPC") {
                                  var core_first = specification_data["core"];
                                 var core_second = specification_data["core"];
                                 var elective_first = specification_data["electives"];
@@ -168,7 +184,7 @@ router.post("/myprofile", function(req, res){
                                                                 elective_second:  query([], elective_second),
                                                                 candidateCourses:candidateCourses});
                                 
-                            }  else if(specification === "HCI" || specification === "HPC") {
+                            }  else if(specification === "HCI") {
                                  var core_first = specification_data["core"];
                                 var core_second = specification_data["core"];
                                 var elective_first = specification_data["electives"]["first"];
@@ -182,8 +198,15 @@ router.post("/myprofile", function(req, res){
                                                                 elective_second:  query(filterdata, elective_second),
                                                                 candidateCourses:candidateCourses});
                                 
-                            }   else  {
-                                
+                            }  else if(specification == null || specification == "") {
+                                console.log("here");
+                                res.render("degrees/degreetrack", {survey: survey, 
+                                                                core_first: query([], []), 
+                                                                core_second: query([], []),
+                                                                elective_first: query([], []),
+                                                                elective_second:  query([], []),
+                                                                candidateCourses:candidateCourses});
+                            } else  {
                                 // console.log("here");
                                 var core_first = specification_data["core"]["first"];
                                 var core_second = specification_data["core"]["second"];
@@ -199,10 +222,9 @@ router.post("/myprofile", function(req, res){
                                                                 elective_first: query(filterdata, elective_first),
                                                                 elective_second:  query([], elective_second),
                                                                 candidateCourses:candidateCourses});
+                                        
                             }
                                 
-   
-
                         }
                         
                             
@@ -299,8 +321,6 @@ function checkFinished(target, element) {
     
 }
 
-// router.get("/degreetrack", function(req, res){
-//     res.render("degrees/degreetrack");
-// });
+
 
 module.exports = router;

@@ -15,5 +15,5 @@ var commentSchema = new mongoose.Schema({
     professor:  String,
     date:       String
 });
- 
+
 module.exports = mongoose.model("Comment", commentSchema);

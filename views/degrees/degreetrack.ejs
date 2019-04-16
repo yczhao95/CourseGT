@@ -3,7 +3,10 @@
     <div class="row">
         
         <p><font size="5">Your Major: <%= survey.major %> </font></p>
-        <p><font size="5">Your Degree Process: <%=survey.courseAlreadyTake/10.0*100 %> %</font></p>
+        <p><font size="5">Your Degree Process: <progress value="<%=survey.courseAlreadyTake/10.0*100 %>"  max="100">
+        </progress><%=survey.courseAlreadyTake/10.0*100 %>% </font></p>
+        
+        
         <p><font size="5">Recommended Courses You may choose:</font></p>
         <p><font size="5">Your selected workload:<%= survey.courseHours %>, Your selected difficulty:<%= survey.courseDiff %></font></p>
         
@@ -61,9 +64,6 @@
                 <% })%>
             </tbody>
             </table>
-
-
-        
         <p><font size="5">Your Specification: <%=survey.specification %> </font></p>
         <p><font size="5">Your Core Courses:  </font></p>
         

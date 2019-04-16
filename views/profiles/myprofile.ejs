@@ -41,25 +41,13 @@
           <p>The number of Courses: <span id="demo0"></span></p>
         </div>
         <script>
-        var slider = document.getElementById("myRange0");
+        var slider = document.getElementById("myRange0", {
+        	tooltip: 'always'
+        });
         var output0 = document.getElementById("demo0");
         output0.innerHTML = slider.value;
         slider.oninput = function() {
           output0.innerHTML = this.value;
-        }
-        </script>
-        
-         <p><font size="5">How many courses do you plan to take?</font></p>
-          <div class="slidecontainer">
-          <input type="range" name = "courseToTake" min="0" max="8" value="0" class="slider" id="myRange1">
-          <p>The number of Courses: <span id="demo1"></span></p>
-        </div>
-        <script>
-        var slider = document.getElementById("myRange1");
-        var output1 = document.getElementById("demo1");
-        output1.innerHTML = slider.value;
-        slider.oninput = function() {
-          output1.innerHTML = this.value;
         }
         </script>
         
@@ -79,7 +67,7 @@
         
         <p><font size="5">What's the average difficulty of courses that you prefer?</font></p>
         <div class="slidecontainer">
-          <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3">
+          <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3" data-slider-tooltip="hide">
           <p>Difficulty level: <span id="demo3"></span></p>
         </div>
         <script>
@@ -90,13 +78,40 @@
           output3.innerHTML = this.value;
         }
         </script>
+        <p><font size="5">Factor importance level: 0-5</font></p>
+        <p><font size="5">GPA-importance:</font></p>
+        <div class="input-group">
+          <input type="button" value="-" class="button-minus" data-field="gpaWeight">
+          <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">
+          <input type="button" value="+" class="button-plus" data-field="gpaWeight">
+       </div>
+       <p><font size="5">CourseRating-importance:</font></p>
+        <div class="input-group">
+          <input type="button" value="-" class="button-minus" data-field="ratingWeight">
+          <input name="ratingWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
+          <input type="button" value="+" class="button-plus" data-field="ratingWeight">
+       </div>
+       <p><font size="5">Workload-importance:</font></p>
+        <div class="input-group">
+          <input type="button" value="-" class="button-minus" data-field="workloadWeight">
+          <input name="workloadWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
+          <input type="button" value="+" class="button-plus" data-field="workloadWeight">
+       </div>
+       <p><font size="5">Difficulty-importance:</font></p>
+        <div class="input-group">
+          <input type="button" value="-" class="button-minus" data-field="difficultyWeight">
+          <input name="difficultyWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
+          <input type="button" value="+" class="button-plus" data-field="difficultyWeight">
+       </div>
+       <script type="text/javascript" src="javascripts/weight.js"></script>
+       
+
         
        
 
         <button class="btn btn-primary"  type="submit">Submit</button>
     </form>
 </div>
-
 
 
 <%include ../partials/footer %>

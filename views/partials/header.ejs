@@ -14,10 +14,18 @@
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
             <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
         </head>
         <style>
                     body{
            font-family: 'Titillium Web', sans-serif;
+        }
+                progress {
+          background-color: #f3f3f3;
+          border: 0;
+          height: 18px;
+          border-radius: 9px;
         }
         </style>
         <body>
@@ -30,11 +38,11 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <% if(!currentUser){ %>
+                                <li><a href="/myprofile" style="color: #000080">Degree Track</a></li>
                                 <li><a href="/login">Log in</a></li>
                                 <li><a href="/register">Sign up</a></li>
                             <% } else {%>
-                                    <li><a href="/degreetrack" style="color: #000080">Degree Track</a></li>
-                                    <li><a href="/myprofile" style="color: #000080">My Profile</a></li>
+                                    <li><a href="/myprofile" style="color: #000080">Degree Track</a></li>
                                     <li><a href="#">Signed In As <%= currentUser.username%></a></li>
                                     <li><a href="/logout">Log out</a></li>
                             <% } %>

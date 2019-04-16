@@ -64,7 +64,6 @@ router.post("/", isLoggedIn, function(req, res){
                     course.difficulty = (course.difficulty * (len - 1) +  comment.difficulty) / len;
                     course.workload = (course.workload * (len - 1) +  comment.workload) / len;
                     var i;
-                    console.log(comment);
                     for (i = 0; i < course.histories.length; i++) { 
                         if(course.histories[i].prof_name === comment.professor) {
                             course.histories[i].num_comment++;
@@ -74,7 +73,6 @@ router.post("/", isLoggedIn, function(req, res){
                         }
                     }
                     course.save();
-                    
                     res.redirect("/courses/" + course._id);
                 }
             });
