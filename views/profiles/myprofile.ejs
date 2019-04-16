@@ -41,7 +41,9 @@
           <p>The number of Courses: <span id="demo0"></span></p>
         </div>
         <script>
-        var slider = document.getElementById("myRange0");
+        var slider = document.getElementById("myRange0", {
+        	tooltip: 'always'
+        });
         var output0 = document.getElementById("demo0");
         output0.innerHTML = slider.value;
         slider.oninput = function() {
@@ -65,7 +67,7 @@
         
         <p><font size="5">What's the average difficulty of courses that you prefer?</font></p>
         <div class="slidecontainer">
-          <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3">
+          <input type="range" name = "courseDiff" min="1" max="5" value="1" class="slider" id="myRange3" data-slider-tooltip="hide">
           <p>Difficulty level: <span id="demo3"></span></p>
         </div>
         <script>

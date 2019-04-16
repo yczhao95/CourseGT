@@ -7,7 +7,11 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/landing.css">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <!--<script type="text/javascript" src="javascripts/chatbot.js"></script>-->
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.41.0.min.js"></script>
+    
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -52,5 +56,20 @@
           <li></li>
         </ul>
         
+        <button class="open-button" id="open-btn" onclick="openForm()"></button>
+    	<div class="chat-popup" id="myForm">
+    		<button type="button" class="close" aria-label="Close" onclick="closeForm()">
+    		  <span aria-hidden="true">&times;</span>
+    		</button>
+    		<h4 style="text-align: center; color: grey;">Start a chat</h4>
+    		<div id="conversation" style="width: 300px; height: 400px; border: 1px solid #ccc; background-color: #eee; padding: 4px; overflow: scroll">
+    		</div>
+    		<form id="chatform" style="margin-top: 10px" onsubmit="return pushChat();">
+    			<input type="text" id="wisdom" size="80" value="" placeholder="What can I do for you?">
+    		</form>
+    	
+    	</div>
+    	
+    	 <script type="text/javascript" src="javascripts/chatbot.js"></script>
             
 <%include partials/footer %>

@@ -2,7 +2,9 @@ var express = require("express");
 var router  = express.Router();
 var Course  = require("../models/course");// this is for courses database setup
 var Comment = require("../models/comment");// this is for comments database setup
+var fileupload = require("express-fileupload");
 
+router.use(fileupload())
 //==========
 //INDEX ROUTE
 //==========
@@ -57,6 +59,41 @@ router.get("/:id", function(req, res){
              res.render("courses/show.ejs", {course: foundCourse});
          }
     });
+});
+
+router.post('/:id/upload', function(req, res) {
+  if (Object.keys(req.files).length == 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.sampleFile;
+  Course.findById(req.params.id, function(err, course){
+      if(err){
+           console.log(err);
+        } else {
+            var type = sampleFile.name.split('.');
+            var filename = course.name + "_syllabus_" +  course.files.length.toString() + "." + type[1];
+            sampleFile.mv('uploads/'+filename, function(err) {
+            if (err){
+              return res.status(500).send(err);
+            }
+            console.log(sampleFile);
+            var file = {
+                file_name : filename
+            };
+            course.files.push(file);
+            course.save();
+            res.redirect("/courses/"+course._id);
+          });
+        }
+  });
+  // Use the mv() method to place the file somewhere on your server
+});
+//download file
+router.get('/download/:id', function(req, res){
+  var file = "uploads/"+req.params.id;
+  res.download(file); // Set disposition and send it.
 });
 
 //middleware
