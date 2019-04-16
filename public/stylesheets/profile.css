@@ -6,6 +6,9 @@ legend{
  font-size: 13px;
 }
 .select_join{ font-size:13px; }
+.inline{
+   display: inline-block;  
+}
 
 .container {
   display: block;

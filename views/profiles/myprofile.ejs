@@ -87,37 +87,9 @@
         }
         </script>
         <br/>
-        <p><font size="3">Factor importance level: 0-5</font></p>
-        <p><font size="4">GPA-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="gpaWeight">
-          <input name="gpaWeight" type="number" step="1" max="5" value="1" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="gpaWeight">
-       </div>
-       
-       
-       <p><font size="4">CourseRating-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="ratingWeight">
-          <input name="ratingWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="ratingWeight">
-       </div>
-       <p><font size="4">Workload-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="workloadWeight">
-          <input name="workloadWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="workloadWeight">
-       </div>
-       <p><font size="4">Difficulty-importance:</font></p>
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="difficultyWeight">
-          <input name="difficultyWeight" type="number" step="1" max="5" value="1" name="quantity" class="quantity-field">
-          <input type="button" value="+" class="button-plus" data-field="difficultyWeight">
-       </div>
-       <script type="text/javascript" src="javascripts/weight.js"></script>
        
         
-        <p><font size="4">Factor importance level: 0-5</font></p>
+        <!--<p><font size="4">Factor importance level: 0-5</font></p>-->
        <!-- <p><font size="4">GPA-importance:</font></p>-->
        <!-- <div class="input-group">-->
        <!--   <input type="button" value="-" class="button-minus" data-field="gpaWeight">-->
@@ -127,10 +99,11 @@
        
        
        
-       <p><font size="4">GPA-importance:</font></p>
+       <div class="inline" style="margin-right: 180px"><p><font size="4"><strong>GPA doesn't matter</strong></font></p></div>
+       <div class="inline"><p><font size="4"><strong>GPA really matters</strong></font></p></div>
         <div class="slidecontainer">
           <input type="range" name = "gpaWeight" min="1" max="5" value="1" class="slider" id="myRange4" data-slider-tooltip="hide">
-          <p>GPA importance: <span id="demo4"></span></p>
+          <p style="font-size:15px;">GPA importance: <span id="demo4"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange4");
@@ -140,7 +113,7 @@
           output4.innerHTML = this.value;
         }
         </script>
-       
+        <br/>
        
        
        <!--<p><font size="4">CourseRating-importance:</font></p>-->
@@ -150,11 +123,11 @@
        <!--   <input type="button" value="+" class="button-plus" data-field="ratingWeight">-->
        <!--</div>-->
        
-       
-        <p><font size="4">CourseRating-importance:</font></p>
+       <div class="inline" style="margin-right: 140px"><p><font size="4"><strong>Rating doesn't matter</strong></font></p></div>
+       <div class="inline"><p><font size="4"><strong>Rating really matters</strong></font></p></div>
         <div class="slidecontainer">
           <input type="range" name = "ratingWeight" min="1" max="5" value="1" class="slider" id="myRange5" data-slider-tooltip="hide">
-          <p>CourseRating importance: <span id="demo5"></span></p>
+          <p style="font-size:15px;">CourseRating importance: <span id="demo5"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange5");
@@ -164,7 +137,7 @@
           output5.innerHTML = this.value;
         }
         </script>
-       
+        <br/>
   
        
        <!--<p><font size="4">Workload-importance:</font></p>-->
@@ -174,11 +147,11 @@
        <!--   <input type="button" value="+" class="button-plus" data-field="workloadWeight">-->
        <!--</div>-->
        
-       
-        <p><font size="4">Workload-importance:</font></p>
+       <div class="inline" style="margin-right: 105px"><p><font size="4"><strong>Workload doesn't matter</strong></font></p></div>
+       <div class="inline"><p><font size="4"><strong>Workload really matters</strong></font></p></div>
         <div class="slidecontainer">
           <input type="range" name = "workloadWeight" min="1" max="5" value="1" class="slider" id="myRange6" data-slider-tooltip="hide">
-          <p>Workload importance: <span id="demo6"></span></p>
+          <p style="font-size:15px;">Workload importance: <span id="demo6"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange6");
@@ -189,7 +162,7 @@
         }
         </script>
        
-       
+        <br/>
        
        
        
@@ -200,11 +173,11 @@
        <!--   <input type="button" value="+" class="button-plus" data-field="difficultyWeight">-->
        <!--</div>-->
        <!--<script type="text/javascript" src="javascripts/weight.js"></script>-->
-       
-       <p><font size="4">Difficulty-importance:</font></p>
+       <div class="inline" style="margin-right: 110px"><p><font size="4"><strong>Difficulty doesn't matter</strong></font></p></div>
+       <div class="inline"><p><font size="4"><strong>Difficulty really matters</strong></font></p></div>
         <div class="slidecontainer">
           <input type="range" name = "difficultyWeight" min="1" max="5" value="1" class="slider" id="myRange7" data-slider-tooltip="hide">
-          <p>Difficulty importance: <span id="demo7"></span></p>
+          <p style="font-size:15px;">Difficulty importance: <span id="demo7"></span></p>
         </div>
         <script>
         var slider = document.getElementById("myRange7");
@@ -214,6 +187,7 @@
           output7.innerHTML = this.value;
         }
         </script>
+         <br/>
         <button class="btn btn-primary"  type="submit">Submit</button>
     </form>
   </div>
