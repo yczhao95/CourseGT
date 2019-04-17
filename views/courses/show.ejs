@@ -25,13 +25,13 @@
                     <em>(total reviews: <%= course.comments.length %>)</em>
                 </p>
                 <p>
-                    Average course rating(Scale 1 to 5): <strong><%= course.rating %></strong>
+                    Average course rating(Scale 1 to 5): <strong><%= course.rating.toFixed(2) %></strong>
                 </p>
                 <p>
-                    Average Difficulty (Scale 1 to 5): <strong><%= course.difficulty %></strong>
+                    Average Difficulty (Scale 1 to 5): <strong><%= course.difficulty.toFixed(2) %></strong>
                 </p>
                 <p>
-                    Average Work Load (Hours per week): <strong><%= course.workload %></strong>
+                    Average Work Load (Hours per week): <strong><%= course.workload.toFixed(2) %></strong>
                 </p>
             <%}%>
             <div>
@@ -97,9 +97,9 @@
                         <td><%=history.prof_d%></td>
                         <td><%=history.prof_f%></td>
                         <td><%=history.prof_w%></td>
-                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.workload%> <%}%></td>
-                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.rating%> <%}%></td>
-                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.difficulty%> <%}%></td>
+                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.workload.toFixed(2)%> <%}%></td>
+                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.rating.toFixed(2)%> <%}%></td>
+                        <td><% if (history.num_comment == 0) {%> N/A <%} else {%> <%=history.difficulty.toFixed(2)%> <%}%></td>
                     </tr>
                 <% })%>
                 </tbody>
